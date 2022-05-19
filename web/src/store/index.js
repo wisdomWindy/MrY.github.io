@@ -1,26 +1,26 @@
-import {createStore} from 'vuex';
-
+import { createStore } from 'vuex';
+import home from './modules/home';
 export default createStore({
-  state:{
-    webTitle:'website',
-      menuList:[{
-        label:'首页',
-        path:'/home'
-      },{
-        label:'关于',
-        path:'/about'
-      }],
+  state: {
+    webTitle: 'website',
+    menuList: [{
+      label: '首页',
+      path: '/home'
+    }, {
+      label: '关于',
+      path: '/about'
+    }],
   },
-  mutations:{
+  mutations: {
 
   },
-  actions:{
+  actions: {
 
   },
-  getters:{
+  getters: {
 
   },
-  modules:{
-
+  modules: {
+    home
   }
 })
