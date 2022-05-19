@@ -24,7 +24,7 @@ body,
 }
 
 html{
-  --themeColor:rgba(239, 239, 239, 1);
+  --themeColor:rgb(6, 143, 255, 1);
   --themeSize:16px;
   --themeFamily:Microsoft YaHi;
 }

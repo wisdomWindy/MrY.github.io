@@ -1,12 +1,8 @@
 <template>
   <div class="container">
-    <ul class="list">
-      <li class="list_item"></li>
-      <li class="list_item"></li>
-      <li class="list_item"></li>
-      <li class="list_item"></li>
-      <li class="list_item"></li>
-    </ul>
+    <el-menu mode="horizontal" :default-active="menuList[0].path" :unique-opened="true" :router="true">
+    <el-menu-item v-for="(menu, index) in menuList" :key="index" :index="menu.path">{{menu.label}}</el-menu-item>
+   </el-menu>
   </div>
 </template>
 
@@ -14,26 +10,16 @@
 import { defineComponent } from "vue";
 export default defineComponent({
   data() {
-    return {};
+    return {
+        menuList:[]
+    };
   },
+  created(){
+    this.menuList = this.$store.state.menuList;
+  }
 });
 </script>
 
 <style scoped>
-.list {
-  width: 100%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.list_item {
-  height: 100%;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(themeSize);
-  font-family: var(themeFamily);
-}
+
 </style>

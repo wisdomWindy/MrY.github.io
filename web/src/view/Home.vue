@@ -1,8 +1,10 @@
 <template>
   <div class="container">
-   <menu mode="horizontal" :default-active="menuList[0].path" :unique-opened="true" :router="true">
-    <menu-item v-for="(menu, index) in menuList" :key="index" :index="menu.path">{{menu.label}}</menu-item>
-   </menu>
+    <el-carousel indicator-position="outside">
+      <el-carousel-item v-for="item in 4" :key="item">
+       <img src="#" alt="">
+      </el-carousel-item>
+    </el-carousel>
   </div>
 </template>
 
@@ -11,11 +13,11 @@ export default {
   name: 'Home',
   data(){
     return {
-      menuList:[]
+    
     }
   },
   created(){
-    this.menuList = this.$store.state.menuList;
+    
   }
 }
 </script>

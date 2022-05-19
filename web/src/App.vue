@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
-    <base-header></base-header>
-    <router-view></router-view>
-    <base-footer></base-footer>
+  <div class="root">
+    <div class="header"><base-header></base-header></div>
+    <div class="main"><router-view></router-view></div>
+    <div class="footer"><base-footer></base-footer></div>
   </div>
 </template>
 
@@ -19,6 +19,21 @@ export default {
 </script>
 
 <style>
+.root{
+  width: 100%;
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+}
+.footer{
+  height: 100px;
+}
+.header{
+  height:60px
+}
+.main{
+  flex:1;
+}
 .container{
   width: 100%;
   height: 100%;
