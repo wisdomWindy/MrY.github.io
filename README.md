@@ -1,3 +1,4 @@
-# MrY.github.io
+# github个人网站
 
-[访问地址](https://wisdomwindy.github.io/)
+[https://wisdomwindy.github.io/dist](https://wisdomwindy.github.io/dist)
+
