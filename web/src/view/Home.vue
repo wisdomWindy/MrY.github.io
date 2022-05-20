@@ -3,6 +3,7 @@
     <el-carousel indicator-position="outside">
       <el-carousel-item v-for="(img, index) in swiperList" :key="index">
        <img :src="img.path" :alt="img.alt">
+       <!-- <img src="../assets/images/moiverout1.jpg" alt=""> -->
       </el-carousel-item>
     </el-carousel>
     <el-row justify="space-between" class="row">
@@ -31,6 +32,7 @@ export default {
     }
   },
   created(){
+    console.log(this.$store.state.home.swiperList[0]);
     this.swiperList = this.$store.state.home.swiperList;
     this.blackList = this.$store.state.home.blackList;
   }
