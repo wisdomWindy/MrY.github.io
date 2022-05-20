@@ -1,5 +1,4 @@
-import {createRouter, createWebHashHistory} from 'vue-router';
-import store from '@/store/index';
+import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router';
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [{
@@ -9,11 +8,6 @@ const router = createRouter({
     path:'/home',
     component:() => import('@/view/Home.vue')
   }]
-});
-
-router.beforeEach((to, from, next) => {
-  // document.title = store.state.webTitle;
-  next();
 });
 
 export default router
