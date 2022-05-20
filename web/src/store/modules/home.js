@@ -1,7 +1,7 @@
 export default {
   state:{
     swiperList: [{
-      path: './static/images/moiverout1.jpg',
+      path: '../static/images/moiverout1.jpg',
       alt: 'moiverout1.jpg'
     }, {
       path: '../images/moiverout2.jpg',
