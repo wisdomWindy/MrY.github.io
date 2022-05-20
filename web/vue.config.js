@@ -19,7 +19,12 @@ module.exports = defineConfig({
   outputDir:'../dist/', // 输出文件的目录为根目录下的dist
   assetsDir: './', // 相对于outputDir  ../dist/./
   indexPath:'../index.html',
-  publicPath:'/dist/',
   lintOnSave:false,
-  productionSourceMap:false
+  productionSourceMap:false,
+  devServer:{
+    static:{
+      publicPath:'./dist/',
+      directory:'./public/images/'
+    }
+  }
 })
