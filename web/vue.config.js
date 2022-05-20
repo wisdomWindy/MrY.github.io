@@ -24,8 +24,8 @@ module.exports = defineConfig({
   productionSourceMap:false,
   devServer:{
     static:{
-      publicPath:'/dist/',
-      directory:'/public/images/'
+      publicPath:'/dist/images/', // 访问服务器的url，当访问该url时返回对应的资源
+      directory:'./public/images/' // 提供资源的文件夹，当访问publicPath时提供directory中的对应内容
     }
   }
 })
