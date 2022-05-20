@@ -25,9 +25,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### 部署
 
-pubilcPath：服务器访问目录 /dist/
+pubilcPath：打包后的访问目录，文件的访问前缀与outputDir无关，至于服务器的部署目录有关。对于没有经过处理的图片不适用  /dist/
 
-outputDir：项目打包后的输出目录，相对于pubilcPath(publicPath/outputDir) ../dist/
+outputDir：项目打包后的输出目录 ../dist/
 
 assetsDir：相对于outputDir(outputDir/assetsDir) ./
 
