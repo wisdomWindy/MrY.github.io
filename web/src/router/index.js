@@ -12,7 +12,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  document.title = store.state.webTitle;
+  // document.title = store.state.webTitle;
   next();
 });
 
