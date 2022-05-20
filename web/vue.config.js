@@ -16,9 +16,10 @@ const assetsDir = path.join(ROOT, 'static/');
 
 module.exports = defineConfig({
   transpileDependencies: true,
-  outputDir:'/dist/', // 输出文件的目录为根目录下的dist
+  outputDir:'../dist/', // 输出文件的目录为根目录下的dist
   assetsDir: './static/', // 相对于outputDir  ../dist/./static/
   publicPath:'/', // 访问的地址是服务器根目录下的dist
+  indexPath:'../index.html',
   lintOnSave:false,
   productionSourceMap:false,
   chainWebpack: config => {
