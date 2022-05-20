@@ -18,7 +18,8 @@ module.exports = defineConfig({
   transpileDependencies: true,
   outputDir:'../dist/', // 输出文件的目录为根目录下的dist
   assetsDir: './', // 相对于outputDir  ../dist/./
+  publicPath:'/dist/',
   indexPath:'../index.html',
   lintOnSave:false,
-  productionSourceMap:false,
+  productionSourceMap:false
 })
