@@ -17,7 +17,7 @@ const assetsDir = path.join(ROOT, 'static/');
 module.exports = defineConfig({
   transpileDependencies: true,
   outputDir:'../dist/', // 输出文件的目录为根目录下的dist
-  assetsDir: './static/', // 相对于outputDir  ../dist/./static/
+  assetsDir: './', // 相对于outputDir  ../dist/./
   indexPath:'../index.html',
   lintOnSave:false,
   productionSourceMap:false,
