@@ -1,25 +1,46 @@
 <template>
   <div class="container">
-    <el-carousel indicator-position="outside">
+    <el-carousel indicator-position="outside" class="carousel">
       <el-carousel-item v-for="(img, index) in swiperList" :key="index">
-       <img :src="img.path" :alt="img.alt">
+       <img :src="img.path" :alt="img.alt" class="carousel_img">
        <!-- <img src="../assets/images/moiverout1.jpg" alt=""> -->
       </el-carousel-item>
     </el-carousel>
-    <el-row justify="space-between" class="row">
-      <el-col :span="11" v-for="(black, index) in blackList" :key="index">
-        <el-card :body-style="{ padding: '0px',display:'flex'}" class="card" >
-          <img
-            :src="black.img"
-            class="card_image"
-          />
-          <div class="card_content" style="padding: 14px">
-            <div class="card_title">{{black.name}}</div>
-            <div class="bottom">{{black.description}}</div>
-          </div>
-        </el-card>
-      </el-col>
-    </el-row>
+   <el-tabs v-model="activeName" type="border-card" class="tabs" @tab-click="handleClick">
+    <el-tab-pane label="人物" name="first">
+      <el-row justify="space-between" class="row">
+        <el-col :span="11" v-for="(black, index) in blackList" :key="index">
+          <el-card :body-style="{ padding: '0px',display:'flex'}" class="card" >
+            <img
+              :src="black.img"
+              class="card_image"
+            />
+            <div class="card_content" style="padding: 14px">
+              <div class="card_title">{{black.name}}</div>
+              <div class="bottom">{{black.description}}</div>
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
+    </el-tab-pane>
+    <el-tab-pane label="剧场" name="second">
+      <el-row justify="space-between" class="row">
+        <el-col :span="11" v-for="(black, index) in blackList" :key="index">
+          <el-card :body-style="{ padding: '0px',display:'flex'}" class="card" >
+            <img
+              :src="black.img"
+              class="card_image"
+            />
+            <div class="card_content" style="padding: 14px">
+              <div class="card_title">{{black.name}}</div>
+              <div class="bottom">{{black.description}}</div>
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
+    </el-tab-pane>
+  </el-tabs>
+   
   </div>
 </template>
 
@@ -28,7 +49,8 @@ export default {
   name: 'Home',
   data(){
     return {
-      swiperList:[]
+      swiperList:[],
+      activeName:'first'
     }
   },
   created(){
@@ -41,11 +63,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.carousel{
+  padding:0 20px;
+}
+.carousel_img{
+  object-fit: fill;
+  width: 100%;
+  height:100%;
+}
+.tabs{
+  margin:0 20px;
+}
 .row{
   padding:0 20px;
 }
 .card{
-  height: 200px;
+  height: 130px;
   font-size: 14px;
   margin-bottom: 20px;
 }
@@ -62,4 +95,5 @@ export default {
 .card_content{
   flex:1;
 }
+
 </style>

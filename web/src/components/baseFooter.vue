@@ -18,10 +18,11 @@ export default defineComponent({
 
 <style scoped>
  .container{
-   background-color: var(themeColor);
+   height: 100px;
+   background-color: var(--themeColor);
    color: #fff;
-   font-family: var(themeFamily);
-   font-size: var(themeSize);
+   font-family: var(--themeFamily);
+   font-size: var(--themeSize);
    display: flex;
    align-items: center;
    justify-content: center;
