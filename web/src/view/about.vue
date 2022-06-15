@@ -10,12 +10,12 @@ export default defineComponent({
 
     }
   },
-  beforeRouteEnter(to, from, next){
-    next(vm => {
-      window.alert(window.location.href);
-      window.history.pushState(null, null, '#/about');
-    });
-  }
+  // beforeRouteEnter(to, from, next){
+  //   next(vm => {
+  //     window.alert(window.location.href);
+  //     window.history.pushState(null, null, '#/about');
+  //   });
+  // }
 })
 </script>
 
