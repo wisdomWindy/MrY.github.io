@@ -57,7 +57,7 @@ export default {
     console.log(this.$store.state.home.swiperList[0]);
     this.swiperList = this.$store.state.home.swiperList;
     this.blackList = this.$store.state.home.blackList;
-  }
+  },
 }
 </script>
 
