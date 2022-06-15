@@ -12,10 +12,10 @@ export default defineComponent({
   },
   beforeRouteEnter(to, from, next){
     next(vm => {
-      window.history.pushState(null, null, '#/home')
+      window.alert(window.location.href);
+      window.history.pushState(null, null, dcoument.URL);
     });
   }
-
 })
 </script>
 
