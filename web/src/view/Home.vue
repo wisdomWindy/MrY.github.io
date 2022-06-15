@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import menuback from '@/mixins/index'
 export default {
   name: 'Home',
   data(){
@@ -53,11 +54,44 @@ export default {
       activeName:'first'
     }
   },
+  mixins:[menuback],
   created(){
     console.log(this.$store.state.home.swiperList[0]);
     this.swiperList = this.$store.state.home.swiperList;
     this.blackList = this.$store.state.home.blackList;
   },
+  beforeRouteEnter(to, from, next){
+    next(vm =>{
+      utils.isWechatPGPromise().then(res => {
+         console.log('window.history', window.history);
+         if(!/\/home/.test(from.path)){
+          window.history.pushState(null, null, '#/home');
+         }
+        if (typeof window.addEventListener != "undefined") {
+          window.addEventListener("popstate", vm.removePop);
+        } else {
+          window.attachEvent("onpopstate", vm.removePop);
+        }
+      });
+    });
+  },
+  beforeRouteLeave(to, from, next){
+    let cachePageName = this.$store.getters.getCachePageName;
+    let keepalive = this.$route.meta.keepalive;
+    if((keepalive && !/home/.test(cachePageName)) || /^\/(orders|category|cart)/.test(to.path)){
+      utils.isWechatPGPromise().then(res => {
+        if (typeof window.removeEventListener != "undefined") {
+          window.removeEventListener("popstate", this.removePop);
+        } else {
+          window.detachEvent("onpopstate", this.removePop);
+        }
+        next();
+      });
+    } else {
+      next();
+    }
+  },
+
 }
 </script>
 
