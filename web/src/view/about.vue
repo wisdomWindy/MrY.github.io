@@ -13,6 +13,7 @@ export default defineComponent({
   },
   mixins:[menuback],
  beforeRouteEnter(to, from, next){
+  window.alert('about')
     next(vm => {
       if(!/\/about/.test(from.path)){
         console.log('ordrs:beforeRouteEnter', !/\/about/.test(from.path));
