@@ -85,13 +85,11 @@ export default {
   // },
   mounted(){
     console.log('home:mounted', window.location.href);
-    if(!/\/home/.test(from.path)){
-      window.history.pushState(null, null, '#');
-      }
+    window.history.pushState(null, null, '#');
     if (typeof window.addEventListener != "undefined") {
-      window.addEventListener("popstate", vm.removePop);
+      window.addEventListener("popstate", this.removePop);
     } else {
-      window.attachEvent("onpopstate", vm.removePop);
+      window.attachEvent("onpopstate", this.removePop);
     }
   },
   beforeUpdate(){
