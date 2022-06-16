@@ -81,8 +81,10 @@ export default {
     }
     next();
   },
-  goUrl(){
-    window.location.href = "https://wisdomwindy.github.io/#/about?name=wb";
+  methods:{
+    goUrl(){
+      window.location.href = "https://wisdomwindy.github.io/#/about?name=wb";
+    }
   }
 
 }
