@@ -65,17 +65,23 @@ export default {
     }, 3000);
   },
   beforeRouteEnter(to, from, next){
-    next(vm =>{
-      console.log('window.history', window.history);
-      if(!/\/home/.test(from.path)){
-        window.history.pushState(null, null, '#');
+    if(/#$/.test(window.location.href)){
+      window.history.go(-1);
+      next();
+    } else {  
+      next(vm =>{
+        console.log('window.history', window.history);
+        if(!/\/home/.test(from.path)){
+          window.history.pushState(null, null, '#');
+          }
+        if (typeof window.addEventListener != "undefined") {
+          window.addEventListener("popstate", vm.removePop);
+        } else {
+          window.attachEvent("onpopstate", vm.removePop);
         }
-      if (typeof window.addEventListener != "undefined") {
-        window.addEventListener("popstate", vm.removePop);
-      } else {
-        window.attachEvent("onpopstate", vm.removePop);
-      }
-    });
+      });
+    } 
+    
   },
   beforeRouteLeave(to, from, next){
     if (typeof window.removeEventListener != "undefined") {
