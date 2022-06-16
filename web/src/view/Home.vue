@@ -60,12 +60,15 @@ export default {
     console.log(this.$store.state.home.swiperList[0]);
     this.swiperList = this.$store.state.home.swiperList;
     this.blackList = this.$store.state.home.blackList;
+    setTimeout(() => {
+      this.blackList.push(this.blackList[0]);
+    }, 3000);
   },
   beforeRouteEnter(to, from, next){
     next(vm =>{
       console.log('window.history', window.history);
       if(!/\/home/.test(from.path)){
-        window.history.pushState(null, null, '#/home');
+        window.history.pushState(null, null, '#');
         }
       if (typeof window.addEventListener != "undefined") {
         window.addEventListener("popstate", vm.removePop);
