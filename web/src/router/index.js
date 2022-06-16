@@ -13,4 +13,10 @@ const router = createRouter({
   }]
 });
 
+router.afterResolve((to, from, next) => {
+  console.log(window.location.href);
+  console.log(to);
+  next();
+
+})
 export default router

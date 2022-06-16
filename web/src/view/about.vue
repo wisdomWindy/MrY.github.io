@@ -50,7 +50,7 @@ export default defineComponent({
     }
   },
   mounted(){
-    window.alert('aboutmounted');
+    // window.alert('aboutmounted');
     console.log('aboutmounted');
     window.history.pushState(null, null, '#');
     if (typeof window.addEventListener != "undefined") {
