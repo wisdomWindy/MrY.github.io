@@ -43,10 +43,14 @@ export default defineComponent({
     });
   },
   beforeUpdate(){
-    if(/#/.test(window.location.href)){
-      console.log('aboutupdate');
+    console.log('beforeUpdate', window.location.href);
+    if(/#$/.test(window.location.href)){
+      console.log('aboutupdate:#');
       window.history.go(-1);
     }
+  },
+  updated(){
+    console.log('aboutupdated', window.location.href);
   },
   beforeRouteLeave(to, from, next) {
     if (typeof window.removeEventListener != "undefined") {
