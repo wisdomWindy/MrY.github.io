@@ -4,7 +4,7 @@ export default{
       
       this.homeBack = true;
       if (/\/(about)/.test(window.location.href)) {
-        console.log('removePop1');
+        console.log('removePop1', window.location.href);
         // window.alert('removePop1', window.location.href);
         // wx.miniProgram.navigateBack({
         //   delta: 1
