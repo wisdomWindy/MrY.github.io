@@ -10,6 +10,7 @@ export default{
         });
         wx.miniProgram.postMessage({ data: { path: this.$route.path } });
       } else {
+        window.alert('removePop3');
         if (/(\/|#)$/.test(window.location.href)) {
           window.alert('removePop2', window.location.href);
           wx.miniProgram.navigateBack({
