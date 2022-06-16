@@ -66,35 +66,38 @@ export default {
       // window.history.go(-1);
     }, 3000);
   },
-  beforeRouteEnter(to, from, next){
-    if(/#$/.test(window.location.href)){
-      window.history.go(-1);
-    } else {  
-      next(vm =>{
-        console.log('window.history', window.history);
-        if(!/\/home/.test(from.path)){
-          window.history.pushState(null, null, '#');
-          }
-        if (typeof window.addEventListener != "undefined") {
-          window.addEventListener("popstate", vm.removePop);
-        } else {
-          window.attachEvent("onpopstate", vm.removePop);
-        }
-      });
-    }
-  },
+  // beforeRouteEnter(to, from, next){
+  //   if(/#$/.test(window.location.href)){
+  //     window.history.go(-1);
+  //   } else {  
+  //     next(vm =>{
+  //       console.log('window.history', window.history);
+  //       if(!/\/home/.test(from.path)){
+  //         window.history.pushState(null, null, '#');
+  //         }
+  //       if (typeof window.addEventListener != "undefined") {
+  //         window.addEventListener("popstate", vm.removePop);
+  //       } else {
+  //         window.attachEvent("onpopstate", vm.removePop);
+  //       }
+  //     });
+  //   }
+  // },
   mounted(){
     console.log('home:mounted', window.location.href);
-    if(/#$/.test(window.location.href)){
-      window.history.go(-1);
-      window.history.pushState(null,null,'#');
+    if(!/\/home/.test(from.path)){
+      window.history.pushState(null, null, '#');
+      }
+    if (typeof window.addEventListener != "undefined") {
+      window.addEventListener("popstate", vm.removePop);
+    } else {
+      window.attachEvent("onpopstate", vm.removePop);
     }
   },
   beforeUpdate(){
     console.log('homebeforeupdate', window.location.href);
   },
   updated(){
-
     console.log('homeupdated', window.location.href);
   },
   beforeRouteLeave(to, from, next){
