@@ -61,12 +61,12 @@ export default {
     this.swiperList = this.$store.state.home.swiperList;
     this.blackList = this.$store.state.home.blackList;
     setTimeout(() => {
-      this.blackList.push(this.blackList[0]);
+      window.history.go(-1);
+      
     }, 3000);
   },
   beforeRouteEnter(to, from, next){
     if(/#$/.test(window.location.href)){
-      window.history.go(-1);
       next();
     } else {  
       next(vm =>{
@@ -83,6 +83,17 @@ export default {
     } 
     
   },
+  mounted(){
+    if(/#$/.test(window.location.href)){
+      this.blackList.push(this.blackList[0]);
+    }
+  },
+  beforeUpdate(){
+    console.log('homebeforeupdate', window.location.href);
+  },
+  updated(){
+    console.log('homeupdated', window.location.href);
+  },
   beforeRouteLeave(to, from, next){
     if (typeof window.removeEventListener != "undefined") {
       window.removeEventListener("popstate", this.removePop);
@@ -91,12 +102,7 @@ export default {
     }
     next();
   },
-  beforeUpdate(){
-    console.log('homebeforeupdate', window.location.href);
-  },
-  updated(){
-    console.log('homeupdated', window.location.href);
-  },
+ 
   methods:{
     goUrl(){
       window.location.href = "https://wisdomwindy.github.io/#/about?name=wb";
