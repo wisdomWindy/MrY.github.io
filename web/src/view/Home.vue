@@ -87,7 +87,7 @@ export default {
     console.log('home:mounted', window.location.href);
     if(/#$/.test(window.location.href)){
       window.history.go(-1);
-      widow.history.pushState(null,null,'#');
+      window.history.pushState(null,null,'#');
     }
   },
   beforeUpdate(){
