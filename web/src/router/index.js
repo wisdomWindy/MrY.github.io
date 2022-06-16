@@ -13,8 +13,8 @@ const router = createRouter({
   }]
 });
 
-router.afterResolve((to, from, next) => {
-  console.log(window.location.href);
+router.afterEach((to, from, next) => {
+  console.log('afterResolve', window.location.href);
   console.log(to);
   next();
 
