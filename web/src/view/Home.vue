@@ -85,18 +85,12 @@ export default {
   // },
   mounted(){
     console.log('home:mounted', window.location.href);
-    window.history.pushState(null, null, '#');
+    window.history.pushState(null, null, '#/home');
     if (typeof window.addEventListener != "undefined") {
       window.addEventListener("popstate", this.removePop);
     } else {
       window.attachEvent("onpopstate", this.removePop);
     }
-  },
-  beforeUpdate(){
-    console.log('homebeforeupdate', window.location.href);
-  },
-  updated(){
-    console.log('homeupdated', window.location.href);
   },
   beforeRouteLeave(to, from, next){
     if (typeof window.removeEventListener != "undefined") {
@@ -109,7 +103,7 @@ export default {
  
   methods:{
     goUrl(){
-      window.location.href = "https://wisdomwindy.github.io/#/about?name=wb";
+      window.location.href = "https://localhost:8080/dist/#/about?name=wb";
     },
     backUrl(){
       window.history.go(-1);

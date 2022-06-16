@@ -13,10 +13,10 @@ const router = createRouter({
   }]
 });
 
-router.afterEach((to, from, next) => {
+router.afterEach((to, from) => {
   console.log('afterResolve', window.location.href);
   console.log(to);
-  next();
+ 
 
 })
 export default router
