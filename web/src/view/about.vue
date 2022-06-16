@@ -23,7 +23,7 @@ export default defineComponent({
     next((vm) => {
       if (!/\/about/.test(from.path)) {
         // window.alert('from1');
-        consoe.log('form1');
+        console.log('form1');
         console.log("ordrs:beforeRouteEnter", !/\/about/.test(from.path));
         window.history.pushState(null, null, "#");
         console.log("orderwindow.location.href", window.location.href);
