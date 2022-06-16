@@ -14,16 +14,19 @@ export default defineComponent({
   },
   mixins: [menuback],
   beforeRouteEnter(to, from, next) {
-    window.alert("about");
+    // window.alert("about");
     next((vm) => {
       if (!/\/about/.test(from.path)) {
+        widnow.alert('from1'+from.path);
         console.log("ordrs:beforeRouteEnter", !/\/about/.test(from.path));
         window.history.pushState(null, null, "#");
         console.log("orderwindow.location.href", window.location.href);
       } else if (/\?/.test(from.fullPath)) {
+        widnow.alert('from3'+from.fullPath);
         console.log("orders:beforeRouteEnter:#");
         window.history.pushState(null, null, "#");
       } else{
+        window.alert('#');
         window.history.pushState(null, null, "#");
       }
       if (typeof window.addEventListener != "undefined") {
@@ -43,7 +46,7 @@ export default defineComponent({
   },
   methods: {
     goUrl() {
-      window.location.href = "https://www.baidu.com";
+      window.location.href = "https://wisdomwindy.github.io/#/about?name=wb";
     },
   },
 });
