@@ -50,6 +50,7 @@ export default defineComponent({
     }
   },
   mounted(){
+    window.alert('aboutmounted');
     console.log('aboutmounted')
   },
   updated(){
