@@ -8,11 +8,11 @@
 <script>
 import { defineComponent } from "vue";
 import menuback from "@/mixins/index";
-window.onpageshow = function(){
-  if(/\/orders\?/.test(window.location.href)){
-    window.addEventListener('popstate', menuback.methods.removePop);
-  }
-}
+// window.onpageshow = function(){
+//   if(/\/orders\?/.test(window.location.href)){
+//     window.addEventListener('popstate', menuback.methods.removePop);
+//   }
+// }
 export default defineComponent({
   data() {
     return {};
@@ -22,7 +22,8 @@ export default defineComponent({
     // window.alert("about");
     next((vm) => {
       if (!/\/about/.test(from.path)) {
-        window.alert('from1');
+        // window.alert('from1');
+        consoe.log('form1');
         console.log("ordrs:beforeRouteEnter", !/\/about/.test(from.path));
         window.history.pushState(null, null, "#");
         console.log("orderwindow.location.href", window.location.href);
