@@ -17,12 +17,12 @@ export default defineComponent({
     // window.alert("about");
     next((vm) => {
       if (!/\/about/.test(from.path)) {
-        widnow.alert('from1'+from.path);
+        widnow.alert('from1');
         console.log("ordrs:beforeRouteEnter", !/\/about/.test(from.path));
         window.history.pushState(null, null, "#");
         console.log("orderwindow.location.href", window.location.href);
       } else if (/\?/.test(from.fullPath)) {
-        widnow.alert('from3'+from.fullPath);
+        widnow.alert('from3');
         console.log("orders:beforeRouteEnter:#");
         window.history.pushState(null, null, "#");
       } else{
