@@ -3,7 +3,7 @@ export default{
     removePop() {
       
       this.homeBack = true;
-      if (/\/(about|home)/.test(window.location.href)) {
+      if (/\/(about|test)/.test(window.location.href)) {
         console.log('removePop1', window.location.href);
         // window.alert('removePop1', window.location.href);
         // wx.miniProgram.navigateBack({

@@ -18,7 +18,7 @@ export default defineComponent({
 
 <style scoped>
  .container{
-   height: 100px;
+   height: 60px;
    background-color: var(--themeColor);
    color: #fff;
    font-family: var(--themeFamily);

@@ -25,11 +25,9 @@ export default {
   display:flex;
   flex-direction: column;
 }
-.footer{
-  height: 100px;
-}
+.footer,
 .header{
-  height:60px
+  height:auto
 }
 .main{
   flex:1;

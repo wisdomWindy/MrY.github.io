@@ -40,14 +40,10 @@
       </el-row>
     </el-tab-pane>
   </el-tabs>
-   <button @click="goUrl">跳转</button>
-   <button @click="backUrl">返回</button>
-   <button @click="delayAdd">添加delay</button>
   </div>
 </template>
 
 <script>
-import menuback from '@/mixins/index'
 export default {
   name: 'Home',
   data(){
@@ -56,66 +52,12 @@ export default {
       activeName:'first'
     }
   },
-  mixins:[menuback],
+ 
   created(){
     console.log(this.$store.state.home.swiperList[0]);
     this.swiperList = this.$store.state.home.swiperList;
     this.blackList = this.$store.state.home.blackList;
-    setTimeout(() => {
-      this.blackList.push(this.blackList[0]);
-      // window.history.go(-1);
-    }, 3000);
   },
-  // beforeRouteEnter(to, from, next){
-  //   if(/#$/.test(window.location.href)){
-  //     window.history.go(-1);
-  //   } else {  
-  //     next(vm =>{
-  //       console.log('window.history', window.history);
-  //       if(!/\/home/.test(from.path)){
-  //         window.history.pushState(null, null, '#/home');
-  //         }
-  //       if (typeof window.addEventListener != "undefined") {
-  //         window.addEventListener("popstate", vm.removePop);
-  //       } else {
-  //         window.attachEvent("onpopstate", vm.removePop);
-  //       }
-  //     });
-  //   }
-  // },
-  mounted(){
-    console.log('home:mounted', window.location.href);
-    window.history.pushState(null, null, '#/home');
-    if (typeof window.addEventListener != "undefined") {
-      window.addEventListener("popstate", this.removePop);
-    } else {
-      window.attachEvent("onpopstate", this.removePop);
-    }
-  },
-  beforeRouteLeave(to, from, next){
-    if (typeof window.removeEventListener != "undefined") {
-      window.removeEventListener("popstate", this.removePop);
-    } else {
-      window.detachEvent("onpopstate", this.removePop);
-    }
-    next();
-  },
- 
-  methods:{
-    goUrl(){
-      window.location.href = "https://localhost:8080/dist/#/about?name=wb";
-    },
-    backUrl(){
-      window.history.go(-1);
-    },
-    delayAdd(){
-      setTimeout(() => {
-        this.blackList.push(this.blackList[0]);
-        // window.history.go(-1);
-      }, 3000);
-    }
-  }
-
 }
 </script>
 
