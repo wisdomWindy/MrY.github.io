@@ -40,7 +40,7 @@
       </el-row>
     </el-tab-pane>
   </el-tabs>
-   
+   <button @click="goUrl">跳转</button>
   </div>
 </template>
 
@@ -81,6 +81,9 @@ export default {
     }
     next();
   },
+  goUrl(){
+    window.location.href = "https://wisdomwindy.github.io/#/about?name=wb";
+  }
 
 }
 </script>
