@@ -42,6 +42,11 @@ export default defineComponent({
       }
     });
   },
+  update(){
+    if(/#/.test(window.location.href)){
+      window.history.go(-1);
+    }
+  },
   beforeRouteLeave(to, from, next) {
     if (typeof window.removeEventListener != "undefined") {
       window.removeEventListener("popstate", this.removePop);

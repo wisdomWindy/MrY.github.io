@@ -13,7 +13,7 @@ export default{
       } else {
         window.alert('removePop3');
         if (/(\/|#)$/.test(window.location.href)) {
-          window.alert('removePop2', window.location.href);
+          console.log('removePop2', window.location.href);
           // wx.miniProgram.navigateBack({
           //   delta: 1
           // });
