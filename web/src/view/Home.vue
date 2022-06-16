@@ -61,8 +61,7 @@ export default {
     this.swiperList = this.$store.state.home.swiperList;
     this.blackList = this.$store.state.home.blackList;
     setTimeout(() => {
-      window.history.go(-1);
-      
+      this.blackList.push(this.blackList[0]);
     }, 3000);
   },
   beforeRouteEnter(to, from, next){
@@ -84,14 +83,16 @@ export default {
     
   },
   mounted(){
+    console.log('home:mounted')
     if(/#$/.test(window.location.href)){
-      this.blackList.push(this.blackList[0]);
+      window.history.go(-1);
     }
   },
   beforeUpdate(){
     console.log('homebeforeupdate', window.location.href);
   },
   updated(){
+
     console.log('homeupdated', window.location.href);
   },
   beforeRouteLeave(to, from, next){
