@@ -28,11 +28,11 @@ export default defineComponent({
         window.history.pushState(null, null, "#");
         console.log("orderwindow.location.href", window.location.href);
       } else if (/\?/.test(from.fullPath)) {
-        window.alert('from3');
+        console.log('from3', from.fullPath);
         console.log("orders:beforeRouteEnter:#");
         window.history.pushState(null, null, "#");
       } else{
-        window.alert('#');
+        console.log('#')
         window.history.pushState(null, null, "#");
       }
       if (typeof window.addEventListener != "undefined") {
@@ -52,7 +52,8 @@ export default defineComponent({
   },
   methods: {
     goUrl() {
-      window.location.href = "https://wisdomwindy.github.io/#/about?name=wb";
+      // window.location.href = "https://wisdomwindy.github.io/#/about?name=wb";
+      window.history.back();
     },
   },
 });
