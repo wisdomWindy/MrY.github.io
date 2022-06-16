@@ -62,6 +62,7 @@ export default {
     this.blackList = this.$store.state.home.blackList;
     setTimeout(() => {
       this.blackList.push(this.blackList[0]);
+      // window.history.go(-1);
     }, 3000);
   },
   beforeRouteEnter(to, from, next){
@@ -83,7 +84,7 @@ export default {
     
   },
   mounted(){
-    console.log('home:mounted')
+    console.log('home:mounted', window.location.href);
     if(/#$/.test(window.location.href)){
       window.history.go(-1);
     }

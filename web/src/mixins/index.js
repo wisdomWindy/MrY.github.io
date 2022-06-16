@@ -3,7 +3,7 @@ export default{
     removePop() {
       
       this.homeBack = true;
-      if (/\/(about)/.test(window.location.href)) {
+      if (/\/(about|home)/.test(window.location.href)) {
         console.log('removePop1', window.location.href);
         // window.alert('removePop1', window.location.href);
         // wx.miniProgram.navigateBack({
@@ -11,7 +11,8 @@ export default{
         // });
         // wx.miniProgram.postMessage({ data: { path: this.$route.path } });
       } else {
-        window.alert('removePop3');
+        // window.alert('removePop3');
+        console.log('removePop3');
         if (/(\/|#)$/.test(window.location.href)) {
           console.log('removePop2', window.location.href);
           // wx.miniProgram.navigateBack({
