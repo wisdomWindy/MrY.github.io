@@ -42,8 +42,9 @@ export default defineComponent({
       }
     });
   },
-  update(){
+  beforeUpdate(){
     if(/#/.test(window.location.href)){
+      console.log('aboutupdate');
       window.history.go(-1);
     }
   },
