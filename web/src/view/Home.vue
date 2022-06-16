@@ -113,7 +113,7 @@ export default {
     backUrl(){
       window.history.go(-1);
     },
-    dealyAdd(){
+    delayAdd(){
       setTimeout(() => {
         this.blackList.push(this.blackList[0]);
         // window.history.go(-1);
