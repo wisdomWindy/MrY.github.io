@@ -85,6 +85,12 @@ export default {
     }
     next();
   },
+  beforeUpdate(){
+    console.log('homebeforeupdate', window.location.href);
+  },
+  updated(){
+    console.log('homeupdated', window.location.href);
+  },
   methods:{
     goUrl(){
       window.location.href = "https://wisdomwindy.github.io/#/about?name=wb";
