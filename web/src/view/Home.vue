@@ -41,6 +41,7 @@
     </el-tab-pane>
   </el-tabs>
    <button @click="goUrl">跳转</button>
+   <button @click="backUrl">返回</button>
   </div>
 </template>
 
@@ -84,6 +85,9 @@ export default {
   methods:{
     goUrl(){
       window.location.href = "https://wisdomwindy.github.io/#/about?name=wb";
+    },
+    backUrl(){
+      window.history.back();
     }
   }
 
