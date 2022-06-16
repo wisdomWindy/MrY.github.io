@@ -49,6 +49,9 @@ export default defineComponent({
       window.history.go(-1);
     }
   },
+  mounted(){
+    console.log('aboutmounted')
+  },
   updated(){
     console.log('aboutupdated', window.location.href);
   },
