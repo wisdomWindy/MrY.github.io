@@ -42,6 +42,7 @@
   </el-tabs>
    <button @click="goUrl">跳转</button>
    <button @click="backUrl">返回</button>
+   <button @click="delayAdd">添加delay</button>
   </div>
 </template>
 
@@ -67,7 +68,7 @@ export default {
   },
   beforeRouteEnter(to, from, next){
     if(/#$/.test(window.location.href)){
-      next();
+      window.history.go(-1);
     } else {  
       next(vm =>{
         console.log('window.history', window.history);
@@ -80,13 +81,13 @@ export default {
           window.attachEvent("onpopstate", vm.removePop);
         }
       });
-    } 
-    
+    }
   },
   mounted(){
     console.log('home:mounted', window.location.href);
     if(/#$/.test(window.location.href)){
       window.history.go(-1);
+      widow.history.pushState(null,null,'#');
     }
   },
   beforeUpdate(){
@@ -111,6 +112,12 @@ export default {
     },
     backUrl(){
       window.history.go(-1);
+    },
+    dealyAdd(){
+      setTimeout(() => {
+        this.blackList.push(this.blackList[0]);
+        // window.history.go(-1);
+      }, 3000);
     }
   }
 
