@@ -73,7 +73,7 @@ export default {
   //     next(vm =>{
   //       console.log('window.history', window.history);
   //       if(!/\/home/.test(from.path)){
-  //         window.history.pushState(null, null, '#');
+  //         window.history.pushState(null, null, '#/home');
   //         }
   //       if (typeof window.addEventListener != "undefined") {
   //         window.addEventListener("popstate", vm.removePop);

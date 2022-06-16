@@ -18,30 +18,30 @@ export default defineComponent({
     return {};
   },
   mixins: [menuback],
-  beforeRouteEnter(to, from, next) {
-    // window.alert("about");
-    next((vm) => {
-      if (!/\/about/.test(from.path)) {
-        // window.alert('from1');
-        console.log('form1');
-        console.log("ordrs:beforeRouteEnter", !/\/about/.test(from.path));
-        window.history.pushState(null, null, "#");
-        console.log("orderwindow.location.href", window.location.href);
-      } else if (/\?/.test(from.fullPath)) {
-        console.log('from3', from.fullPath);
-        console.log("orders:beforeRouteEnter:#");
-        window.history.pushState(null, null, "#");
-      } else{
-        console.log('#')
-        window.history.pushState(null, null, "#");
-      }
-      if (typeof window.addEventListener != "undefined") {
-        window.addEventListener("popstate", vm.removePop);
-      } else {
-        window.attachEvent("onpopstate", vm.removePop);
-      }
-    });
-  },
+  // beforeRouteEnter(to, from, next) {
+  //   // window.alert("about");
+  //   next((vm) => {
+  //     if (!/\/about/.test(from.path)) {
+  //       // window.alert('from1');
+  //       console.log('form1');
+  //       console.log("ordrs:beforeRouteEnter", !/\/about/.test(from.path));
+  //       window.history.pushState(null, null, "#");
+  //       console.log("orderwindow.location.href", window.location.href);
+  //     } else if (/\?/.test(from.fullPath)) {
+  //       console.log('from3', from.fullPath);
+  //       console.log("orders:beforeRouteEnter:#");
+  //       window.history.pushState(null, null, "#");
+  //     } else{
+  //       console.log('#')
+  //       window.history.pushState(null, null, "#");
+  //     }
+  //     if (typeof window.addEventListener != "undefined") {
+  //       window.addEventListener("popstate", vm.removePop);
+  //     } else {
+  //       window.attachEvent("onpopstate", vm.removePop);
+  //     }
+  //   });
+  // },
   beforeUpdate(){
     console.log('beforeUpdate', window.location.href);
     if(/#$/.test(window.location.href)){
@@ -51,7 +51,13 @@ export default defineComponent({
   },
   mounted(){
     window.alert('aboutmounted');
-    console.log('aboutmounted')
+    console.log('aboutmounted');
+    window.history.pushState(null, null, '#');
+    if (typeof window.addEventListener != "undefined") {
+      window.addEventListener("popstate", this.removePop);
+    } else {
+      window.attachEvent("onpopstate", this.removePop);
+    }
   },
   updated(){
     console.log('aboutupdated', window.location.href);
