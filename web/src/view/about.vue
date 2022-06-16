@@ -18,10 +18,12 @@ export default defineComponent({
     next((vm) => {
       if (!/\/about/.test(from.path)) {
         console.log("ordrs:beforeRouteEnter", !/\/about/.test(from.path));
-        window.history.pushState(null, null, "#/about");
+        window.history.pushState(null, null, "#");
         console.log("orderwindow.location.href", window.location.href);
       } else if (/\?/.test(from.fullPath)) {
         console.log("orders:beforeRouteEnter:#");
+        window.history.pushState(null, null, "#");
+      } else{
         window.history.pushState(null, null, "#");
       }
       if (typeof window.addEventListener != "undefined") {
