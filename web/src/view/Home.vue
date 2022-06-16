@@ -87,7 +87,7 @@ export default {
       window.location.href = "https://wisdomwindy.github.io/#/about?name=wb";
     },
     backUrl(){
-      window.history.back();
+      window.history.go(-1);
     }
   }
 
