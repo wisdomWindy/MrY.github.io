@@ -29,7 +29,7 @@ export default defineComponent({
 
   beforeRouteEnter(to, from, next) {
     next((vm) => {
-      console.log("window.history", window.history);
+      console.log("window.history", window.history, from.fullPath);
       if (!/\/test/.test(from.path)) {
         window.history.pushState(null, null, "#/test");
       }
@@ -50,6 +50,7 @@ export default defineComponent({
     // }
   },
   beforeRouteLeave(to, from, next) {
+    console.log('test:leave', to.fullPath)
     if (typeof window.removeEventListener != "undefined") {
       window.removeEventListener("popstate", this.removePop);
     } else {
@@ -75,7 +76,7 @@ export default defineComponent({
       }, 3000);
     },
     locaUrl(){
-      window.location.href="http://localhost:8080/dist/#/about";
+      window.location.href="http://localhost:8080/dist/#/about?name=fs";
     }
   },
 });

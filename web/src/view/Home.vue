@@ -6,7 +6,7 @@
        <!-- <img src="../assets/images/moiverout1.jpg" alt=""> -->
       </el-carousel-item>
     </el-carousel>
-   <el-tabs v-model="activeName" type="border-card" class="tabs" @tab-click="handleClick">
+   <el-tabs v-model="activeName" type="border-card" class="tabs">
     <el-tab-pane label="人物" name="first">
       <el-row justify="space-between" class="row">
         <el-col :span="11" v-for="(black, index) in blackList" :key="index">
@@ -40,6 +40,7 @@
       </el-row>
     </el-tab-pane>
   </el-tabs>
+  <span>{{num}}</span>
   </div>
 </template>
 
@@ -49,7 +50,8 @@ export default {
   data(){
     return {
       swiperList:[],
-      activeName:'first'
+      activeName:'first',
+      num:1
     }
   },
  
@@ -57,6 +59,15 @@ export default {
     console.log(this.$store.state.home.swiperList[0]);
     this.swiperList = this.$store.state.home.swiperList;
     this.blackList = this.$store.state.home.blackList;
+    console.log(this.$route.query.token);
+    setTimeout(() => {
+      this.num++;
+    },2000);
+    this.$store.commit('setTest',this.$route.query.token);
+  },
+
+  updated(){
+    console.log('updated', this.$store.state.test);
   },
 }
 </script>

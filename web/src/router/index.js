@@ -11,6 +11,12 @@ const router = createRouter({
   },{
     path:'/about',
     name:'about',
+    meta:{
+      keepalive:true
+    },
+    query:{
+      tabbar:true
+    },
     component:() => import('@/view/about.vue')
   },{
     path:'/test',
@@ -19,8 +25,17 @@ const router = createRouter({
   }]
 });
 
+if (/\/about/.test(window.location.href)){
+  window.addEventListener('popstate', (e) => {
+    console.log('routerPop', router);
+  });
+}
+
+router.beforeEach((to, from, next) => {
+  console.log('updateRouterEach', to);
+  next();
+})
 router.afterEach((to, from) => {
-  console.log('afterResolve', window.location.href);
-  console.log('afterEach:to', to);
+  console.log('afterEach:to', to, window.location.href);
 });
 export default router

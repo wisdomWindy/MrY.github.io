@@ -1,7 +1,7 @@
 export default{
   methods:{
-    removePop() {
-      
+    removePop(e) {
+      e.preventDefault();
       this.homeBack = true;
       if (/\/(about|test)/.test(window.location.href)) {
         console.log('removePop1', window.location.href);

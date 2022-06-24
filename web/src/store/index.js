@@ -10,9 +10,13 @@ export default createStore({
       label: '关于',
       path: '/about'
     }],
+    test: ''
   },
   mutations: {
-
+    setTest(state, payload) {
+      console.log('store', state, payload);
+      state.test = payload;
+    }       
   },
   actions: {
 

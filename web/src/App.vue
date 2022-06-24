@@ -1,7 +1,12 @@
 <template>
   <div class="root">
     <div class="header"><base-header></base-header></div>
-    <div class="main"><router-view></router-view></div>
+    <div class="main">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+      <!-- <router-view></router-view> -->
+    </div>
     <div class="footer"><base-footer></base-footer></div>
   </div>
 </template>
@@ -14,6 +19,18 @@ export default {
   components:{
     'base-footer':baseFooter,
     'base-header':baseHeader
+  },
+  beforeRouteLeave(to, from, next){
+    window.alert('beforeRouteLeave');
+    next();
+  },
+  mounted(){
+    // document.body.onunload = function () {
+    //   window.alert('onunload');
+    // }
+  },
+  beforeUnmount(){
+    // widnow.alert('appunload')
   }
 }
 </script>
