@@ -27,42 +27,6 @@ export default defineComponent({
     }, 3000);
   },
 
-  beforeRouteEnter(to, from, next) {
-    next((vm) => {
-      console.log("window.history", window.history, from.fullPath);
-      if (!/\/test/.test(from.path)) {
-        window.history.pushState(null, null, "#/test");
-      }
-      if (typeof window.addEventListener != "undefined") {
-        window.addEventListener("popstate", vm.removePop);
-      } else {
-        window.attachEvent("onpopstate", vm.removePop);
-      }
-    });
-  },
-  mounted() {
-    // console.log('home:mounted', window.location.href);
-    // window.history.pushState(null, null, '#/home');
-    // if (typeof window.addEventListener != "undefined") {
-    //   window.addEventListener("popstate", this.removePop);
-    // } else {
-    //   window.attachEvent("onpopstate", this.removePop);
-    // }
-  },
-  beforeRouteLeave(to, from, next) {
-    console.log('test:leave', to.fullPath)
-    if (typeof window.removeEventListener != "undefined") {
-      window.removeEventListener("popstate", this.removePop);
-    } else {
-      window.detachEvent("onpopstate", this.removePop);
-    }
-    next();
-  },
-  watch:{
-    '$route':function(newRoute, old){
-      console.log('watchroute', newRoute, old);
-    }
-  },
   methods: {
     goUrl() {
       window.history.go(-1);

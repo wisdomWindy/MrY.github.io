@@ -56,18 +56,8 @@ export default {
   },
  
   created(){
-    console.log(this.$store.state.home.swiperList[0]);
     this.swiperList = this.$store.state.home.swiperList;
     this.blackList = this.$store.state.home.blackList;
-    console.log(this.$route.query.token);
-    setTimeout(() => {
-      this.num++;
-    },2000);
-    this.$store.commit('setTest',this.$route.query.token);
-  },
-
-  updated(){
-    console.log('updated', this.$store.state.test);
   },
 }
 </script>

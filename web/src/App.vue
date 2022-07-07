@@ -20,18 +20,6 @@ export default {
     'base-footer':baseFooter,
     'base-header':baseHeader
   },
-  beforeRouteLeave(to, from, next){
-    window.alert('beforeRouteLeave');
-    next();
-  },
-  mounted(){
-    // document.body.onunload = function () {
-    //   window.alert('onunload');
-    // }
-  },
-  beforeUnmount(){
-    // widnow.alert('appunload')
-  }
 }
 </script>
 
