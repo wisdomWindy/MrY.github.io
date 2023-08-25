@@ -14,8 +14,7 @@ module.exports = defineConfig({
     // config.output.filename = `js/[name].[chunkhash].${timeStamp}.js`;
     // config.output.chunkFilename = `js/[name].[chunkhash].${timeStamp}.js`;
     config.externals = {
-      vue:'Vue',
-      'element-plus':'ELEMENT'
+      'element-plus':'Element'
     };
     // 清除console代码
     let optimizationCompress = config.optimization.minimizer[0].options.minimizer.options.compress;
@@ -24,18 +23,10 @@ module.exports = defineConfig({
       drop_debugger: true
     });
     config.plugins.push(new WebpackCDNPlugin({
-      modules: [{
-        name: 'vue',
-        var: 'Vue',
-        url: 'dist/vue.runtime.min.js'
-      }, {
-        name: 'vue-router',
-        var: 'VueRouter',
-        url: 'dist/vue-router.runtime.min.js'
-      }, {
-        name: 'vuex',
-        var: 'Vuex',
-        url: 'dist/vuex.runtime.min.js'
+      modules: [ {
+        name: 'element-plus',
+        var: 'Element',
+        url: 'dist/element-plus.runtime.min.js'
       }],
       publicPath:'/node_modules',
       prod:true
