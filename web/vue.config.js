@@ -11,8 +11,12 @@ module.exports = defineConfig({
   lintOnSave: false,
   productionSourceMap: false,
   configureWebpack: (config) => {
-    config.output.filename = `js/[name].[chunkhash].${timeStamp}.js`;
-    config.output.chunkFilename = `js/[name].[chunkhash].${timeStamp}.js`;
+    // config.output.filename = `js/[name].[chunkhash].${timeStamp}.js`;
+    // config.output.chunkFilename = `js/[name].[chunkhash].${timeStamp}.js`;
+    config.externals = {
+      vue:'Vue',
+      'element-plus':'ELEMENT'
+    };
     // 清除console代码
     let optimizationCompress = config.optimization.minimizer[0].options.minimizer.options.compress;
     config.optimization.minimizer[0].options.minimizer.options.compress = Object.assign(optimizationCompress, {
@@ -33,7 +37,8 @@ module.exports = defineConfig({
         var: 'Vuex',
         url: 'dist/vuex.runtime.min.js'
       }],
-      publicPath:'/node_modules'
+      publicPath:'/node_modules',
+      prod:true
     }))
   },
   chainWebpack: (config) => {
