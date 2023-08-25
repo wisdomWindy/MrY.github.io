@@ -11,8 +11,8 @@ module.exports = defineConfig({
   lintOnSave: false,
   productionSourceMap: false,
   configureWebpack: (config) => {
-    // config.output.filename = `js/[name].[chunkhash].${timeStamp}.js`;
-    // config.output.chunkFilename = `js/[name].[chunkhash].${timeStamp}.js`;
+    config.output.filename = `js/[name].[chunkhash].${timeStamp}.js`;
+    config.output.chunkFilename = `js/[name].[chunkhash].${timeStamp}.js`;
     config.externals = {
       'element-plus':'Element'
     };
@@ -30,7 +30,7 @@ module.exports = defineConfig({
       }],
       publicPath:'/node_modules',
       prod:true
-    }))
+    }));
   },
   chainWebpack: (config) => {
     config.plugin('extract-css').tap(arg => [{
