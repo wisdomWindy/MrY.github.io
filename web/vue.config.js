@@ -1,5 +1,5 @@
 const { defineConfig } = require('@vue/cli-service');
-
+const timeStamp = Date.now();
 // vue中public文件夹放在与src同级目录下，该目录中放置静态资源，引用时路径相对于实际引用的文件
 module.exports = defineConfig({
   transpileDependencies: true,
@@ -9,10 +9,34 @@ module.exports = defineConfig({
   publicPath:'/dist/',
   lintOnSave:false,
   productionSourceMap:false,
+  configureWebpack:(config)=>{
+    config.output.filename = `js/[name].[chunkhash].${timeStamp}.js`;
+    config.output.chunkFilename = `js/[name].[chunkhash].${timeStamp}.js`;
+    // 清除console代码
+    let optimizationCompress = config.optimization.minimizer[0].options.minimizer.options.compress ;
+    config.optimization.minimizer[0].options.minimizer.options.compress = Object.assign(optimizationCompress,{
+      drop_console:true,
+      drop_debugger:true
+    });
+  },
+  chainWebpack:(config)=>{
+    config.plugin('extract-css').tap(arg => [{
+      filename:`css/[name].${timeStamp}.css`,
+      chunkFilename: `css/[name].${timeStamp}.css`
+    }]);
+  },
+  css:{
+    extract:{
+      ignoreOrder:true
+    }
+  },
   devServer:{
     static:{
       publicPath:'/dist/dist/images/', // 访问服务器的url，当访问该url时返回对应的资源
       directory:'./public/images/' // 提供资源的文件夹，当访问publicPath时提供directory中的对应内容
+    },
+    client:{
+      overlay:false
     }
   }
 })

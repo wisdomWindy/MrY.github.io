@@ -4,16 +4,9 @@
  </div>
 </template>
 
-<script>
-import {defineComponent} from 'vue'
-export default defineComponent({
- data(){
-   return {    
+<script setup>
 
-    }
-  }
 
-})
 </script>
 
 <style scoped>

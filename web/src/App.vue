@@ -1,26 +1,16 @@
 <template>
   <div class="root">
-    <div class="header"><base-header></base-header></div>
+    <div class="header"><Base-header></Base-header></div>
     <div class="main">
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
-      <!-- <router-view></router-view> -->
+      <router-view></router-view>
     </div>
-    <div class="footer"><base-footer></base-footer></div>
+    <div class="footer"><Base-footer></Base-footer></div>
   </div>
 </template>
 
-<script>
-import baseHeader from './components/baseHeader.vue'
-import baseFooter from './components/baseFooter.vue'
-export default {
-  name: 'App',
-  components:{
-    'base-footer':baseFooter,
-    'base-header':baseHeader
-  },
-}
+<script setup>
+import BaseHeader from '@/components/BaseHeader.vue'
+import BaseFooter from '@/components/BaseFooter.vue'
 </script>
 
 <style>
