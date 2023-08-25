@@ -1,16 +1,16 @@
 export default {
   state:{
     swiperList: [{
-      path: './images/moiverout1.jpg',
+      path: './dist/images/moiverout1.jpg',
       alt: 'moiverout1.jpg'
     }, {
-      path: './images/moiverout2.jpg',
+      path: './dist/images/moiverout2.jpg',
       alt: 'moiverout2.jpg'
     }, {
-      path: './images/moiverout3.jpg',
+      path: './dist/images/moiverout3.jpg',
       alt: 'moiverout3.jpg'
     }, {
-      path: './images/moiverout4.jpg',
+      path: './dist/images/moiverout4.jpg',
       alt: 'moiverout4.jpg'
     }],
     blackList:[{
