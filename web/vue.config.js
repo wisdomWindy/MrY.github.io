@@ -26,7 +26,7 @@ module.exports = defineConfig({
       modules: [{
         name: 'element-plus',
         var: 'Element',
-        path: 'dist/index.full.mjs'
+        path: '/dist/index.full.min.js'
       }],
       publicPath:'/node_modules',
       prod:true
