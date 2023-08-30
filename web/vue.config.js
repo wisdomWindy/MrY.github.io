@@ -13,11 +13,11 @@ module.exports = defineConfig({
   configureWebpack: (config) => {
     config.output.filename = `js/[name].[chunkhash].${timeStamp}.js`;
     config.output.chunkFilename = `js/[name].[chunkhash].${timeStamp}.js`;
-    config.externals = {
-      'vue': 'Vue',
-      'element-plus':'Element',
+    // config.externals = {
+    //   'vue': 'Vue',
+    //   'element-plus':'Element',
       
-    };
+    // };
     // 清除console代码
     let optimizationCompress = config.optimization.minimizer[0].options.minimizer.options.compress;
     config.optimization.minimizer[0].options.minimizer.options.compress = Object.assign(optimizationCompress, {
@@ -28,7 +28,7 @@ module.exports = defineConfig({
       modules: [{
         name: 'vue',
         var: 'Vue',
-        path: 'dist/vue.runtime.esm-browser.prod.js'
+        path: 'dist/vue.runtime.global.prod.js'
       },{
         name: 'element-plus',
         var: 'Element',
