@@ -23,7 +23,7 @@ module.exports = defineConfig({
       drop_debugger: true
     });
     config.plugins.push(new WebpackCDNPlugin({
-      modules: [ {
+      modules: [{
         name: 'element-plus',
         var: 'Element',
         url: 'dist/element-plus.runtime.min.js'
