@@ -14,7 +14,8 @@ module.exports = defineConfig({
     config.output.filename = `js/[name].[chunkhash].${timeStamp}.js`;
     config.output.chunkFilename = `js/[name].[chunkhash].${timeStamp}.js`;
     config.externals = {
-      'element-plus':'Element'
+      'element-plus':'Element',
+      'vue':'Vue'
     };
     // 清除console代码
     let optimizationCompress = config.optimization.minimizer[0].options.minimizer.options.compress;
@@ -27,6 +28,10 @@ module.exports = defineConfig({
         name: 'element-plus',
         var: 'Element',
         path: 'dist/index.full.min.js'
+      },{
+        name:'vue',
+        var:'Vue',
+        path:'dist/vue.runtime.esm-browser.prod.js'
       }],
       publicPath:'/node_modules',
       prod:true
