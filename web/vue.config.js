@@ -13,11 +13,11 @@ module.exports = defineConfig({
   configureWebpack: (config) => {
     config.output.filename = `js/[name].[chunkhash].${timeStamp}.js`;
     config.output.chunkFilename = `js/[name].[chunkhash].${timeStamp}.js`;
-    // config.externals = {
-    //   'vue': 'Vue',
-    //   'element-plus':'Element',
+    config.externals = {
+      'vue': 'Vue',
+      'element-plus':'Element',
       
-    // };
+    };
     // 清除console代码
     let optimizationCompress = config.optimization.minimizer[0].options.minimizer.options.compress;
     config.optimization.minimizer[0].options.minimizer.options.compress = Object.assign(optimizationCompress, {
