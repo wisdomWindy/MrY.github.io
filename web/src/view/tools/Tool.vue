@@ -1,12 +1,43 @@
 <template>
  <div class="tool">
-  
+    <el-menu 
+    class="menu" 
+    mode="vertical" 
+    :default-active="menuList[0].path" 
+    active-text-color="var(--el-color-primary)" 
+    text-color="#000" 
+    :unique-opened="true" 
+    :router="true">
+      <el-menu-item v-for="(menu, index) in menuList" :key="index" :index="menu.path">{{ menu.label }}</el-menu-item>
+    </el-menu>
+    <div class="main">
+      <router-view></router-view>
+    </div>
  </div>
 </template>
 
 <script setup>
+
+const menuList = [{
+  path:'/tool/videoTransform',
+  label:'视频转换',
+},{
+  path:'/tool/base64',
+  label:'base64'
+}];
 </script>
 
 <style scoped>
- 
+ .tool{
+  height: 100%;
+  display: flex;
+ }
+ .main{
+  flex:1;
+  height:100%;
+ }
+ .menu{
+  width: 150px;
+  height: 100%;
+ }
 </style>
