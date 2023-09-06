@@ -9,6 +9,9 @@ export default createStore({
     }, {
       label: '关于',
       path: '/about'
+    },{
+      label:'工具',
+      path:'/tool'
     }],
     test: ''
   },

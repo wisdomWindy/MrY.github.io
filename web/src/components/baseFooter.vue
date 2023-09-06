@@ -12,7 +12,7 @@
 <style scoped>
  .container{
    height: 60px;
-   background-color: var(--themeColor);
+   background-color: var(--el-color-primary);
    color: #fff;
    font-family: var(--themeFamily);
    font-size: var(--themeSize);

@@ -1,14 +1,12 @@
 <template>
-  <div class="container">
-    
-  </div>
+ <div class="tool">
+  
+ </div>
 </template>
 
 <script setup>
-
-
 </script>
 
 <style scoped>
-
+ 
 </style>

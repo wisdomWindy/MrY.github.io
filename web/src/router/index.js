@@ -11,13 +11,11 @@ const router = createRouter({
   },{
     path:'/about',
     name:'about',
-    meta:{
-      keepalive:true
-    },
-    query:{
-      tabbar:true
-    },
     component:() => import('@/view/AboutPage.vue')
+  },{
+    path:'/tool',
+    name:'tool',
+    component:()=>import('@/view/tools/Tool.vue')
   }]
 });
 
