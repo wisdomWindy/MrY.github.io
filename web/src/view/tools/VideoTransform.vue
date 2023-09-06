@@ -11,7 +11,7 @@
         <el-button type="primary">select file</el-button>
       </template>
     </el-upload>
-    <video ref="video"></video>
+    <video class="video" ref="video"></video>
   </div>
 </template>
 
@@ -33,11 +33,9 @@ async function handleBeforeUpload(file){
     await ffm.writeFile('input.wmv', await fetchFile(file.raw));
     
     let res = await ffm.exec(['-i', 'input.wmv', 'output.mp4']);
-    console.log(res)
     const fileData = await ffm.readFile('output.mp4');
-    console.log(fileData);
     video.value.src = URL.createObjectURL(new Blob([fileData.buffer], { type: 'video/mp4' }));
-    console.log(URL.createObjectURL(new Blob([fileData.buffer], { type: 'video/mp4' })))
+   
   }catch(err){
     console.log(err);
   }
@@ -47,5 +45,8 @@ async function handleBeforeUpload(file){
 </script>
 
 <style scoped>
- 
+ .video{
+  width: 400px;
+  height: 300px;
+ }
 </style>
