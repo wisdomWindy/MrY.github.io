@@ -7,7 +7,7 @@
     </div>
     <h2>联系我</h2>
     <div class="link-list">
-      <el-link class="link" v-for="(link,index) in links" :key="index" :href="link.href" :title="link.title" :underline="false">
+      <el-link class="link" v-for="(link,index) in links" :key="index" :href="link.href" :alt="link.title" :title="link.title" :underline="false">
         <span :class="['iconfont',link.icon]"></span>
       </el-link>
   </div>
