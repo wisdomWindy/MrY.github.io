@@ -1,6 +1,6 @@
-import {createRouter, createWebHashHistory} from 'vue-router';
+import {createRouter,createWebHistory} from 'vue-router';
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [{
     path: '/',
     redirect: '/home'
@@ -24,6 +24,10 @@ const router = createRouter({
       path:'base64',
       name:'base64',
       component:()=>import('@/view/tools/Base64.vue')
+    },{
+      path:'docxpreview',
+      name:'docxpreview',
+      component:()=>import('@/view/tools/Docxpreview.vue')
     }]
   }]
 });

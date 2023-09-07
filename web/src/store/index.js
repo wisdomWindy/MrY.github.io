@@ -6,18 +6,17 @@ export default createStore({
     menuList: [{
       label: '首页',
       path: '/home'
-    }, {
-      label: '关于',
-      path: '/about'
     },{
       label:'工具',
       path:'/tool'
-    }],
+      }, {
+        label: '关于',
+        path: '/about'
+      }],
     test: ''
   },
   mutations: {
     setTest(state, payload) {
-      console.log('store', state, payload);
       state.test = payload;
     }       
   },

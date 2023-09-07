@@ -24,6 +24,9 @@ const menuList = [{
 },{
   path:'/tool/base64',
   label:'base64'
+},{
+  path:'/tool/docxpreview',
+  label:'docxPreview'
 }];
 </script>
 
@@ -31,10 +34,15 @@ const menuList = [{
  .tool{
   height: 100%;
   display: flex;
+  overflow: hidden;
  }
  .main{
   flex:1;
   height:100%;
+  padding-left:10px;
+  padding-top:10px;
+  overflow-y: auto;
+  box-sizing: border-box;
  }
  .menu{
   width: 150px;

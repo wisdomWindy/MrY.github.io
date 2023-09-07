@@ -5,8 +5,11 @@ import router from '@/router/index';
 import Element from 'element-plus';
 import 'element-plus/dist/index.css';
 import zhCn from 'element-plus/es/locale/lang/zh-cn';
-import '@/styles/reset.css';
+import '@/styles/global.css';
+import { Message } from '@element-plus/icons-vue';
 
-createApp(App).use(store).use(router).use(Element,{
+const app = createApp(App);
+app.component('Message',Message);
+app.use(store).use(router).use(Element,{
   locale:zhCn
 }).mount('#app')

@@ -11,11 +11,11 @@
 
 <style scoped>
  .container{
-   height: 60px;
+   height: 100%;
    background-color: var(--el-color-primary);
    color: #fff;
-   font-family: var(--themeFamily);
-   font-size: var(--themeSize);
+   font-family: var(--theme-family);
+   font-size: var(--theme-font-size);
    display: flex;
    align-items: center;
    justify-content: center;

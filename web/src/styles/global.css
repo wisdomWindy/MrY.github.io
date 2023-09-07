@@ -1,6 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
+:root {
+  --theme-family: Microsoft Yahei;
+  --theme-font-size: 16px;
+}
+
+.iconfont{
+  font-size:20px;
 }
 
 a {

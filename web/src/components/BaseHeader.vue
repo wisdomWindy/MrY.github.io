@@ -4,16 +4,13 @@
     class="menu" 
     mode="horizontal" 
     :default-active="menuList[0].path" 
-    background-color="var(--el-color-primary)" 
-    active-text-color="#fff" 
-    text-color="#fff" 
     :unique-opened="true" 
     :router="true">
-      <el-menu-item v-for="(menu, index) in menuList" :key="index" :index="menu.path">{{menu.label}}</el-menu-item>
+      <el-menu-item class="menu-item" v-for="(menu, index) in menuList" :key="index" :index="menu.path">{{menu.label}}</el-menu-item>
     </el-menu>
     <div class="other">
       <el-switch
-      v-model="isDark"
+      v-model="isLight"
       active-text="Light"
       inactive-text="Dark"
       @change="changeSkin"
@@ -27,7 +24,7 @@ import {ref,onBeforeMount} from "vue";
 import {useStore} from 'vuex';
 const $store = useStore();
 let menuList = ref([]);
-let isDark = ref(false);
+let isLight = ref(true);
 onBeforeMount(()=>{
   menuList.value = $store.state.menuList;
 });
@@ -35,7 +32,7 @@ onBeforeMount(()=>{
 // 换肤
 function changeSkin(){
   const el = document.documentElement;
-  el.style.setProperty('--el-color-primary', isDark.value ? '#000' : '#409eff');
+  el.style.setProperty('--el-color-primary', isLight.value ? '#409eff' : '#000');
 }
 </script>
 
@@ -43,11 +40,12 @@ function changeSkin(){
 .container{
   display: flex;
   align-items:center;
-  background-color: var(--el-color-primary);
+  height:100%;
 }
 .menu{
   flex:1;
 }
+
 .other{
   display: flex;
   align-items: center;

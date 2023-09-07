@@ -20,12 +20,15 @@ import BaseFooter from '@/components/BaseFooter.vue'
   display:flex;
   flex-direction: column;
 }
-.footer,
+.footer{
+  height:40px;
+}
 .header{
-  height:auto
+  height:60px;
 }
 .main{
   flex:1;
+  overflow: hidden;
 }
 .container{
   width: 100%;
