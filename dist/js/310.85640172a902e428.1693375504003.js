@@ -1,1 +1,0 @@
-"use strict";(self["webpackChunkweb"]=self["webpackChunkweb"]||[]).push([[310],{9310:function(n,e,c){c.r(e),c.d(e,{default:function(){return o}});var r=c(3396);const t={class:"container"};function a(n,e){return(0,r.wg)(),(0,r.iD)("div",t)}var s=c(89);const u={},i=(0,s.Z)(u,[["render",a],["__scopeId","data-v-1c99735a"]]);var o=i}}]);
