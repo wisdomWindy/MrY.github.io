@@ -1,4 +1,4 @@
-let {defineConfig} = require('@vue/cli-service');
+const { defineConfig } = require('@vue/cli-service');
 
 // const WebpackCDNPlugin = require('webpack-cdn-plugin');
 const timeStamp = Date.now();
@@ -17,7 +17,7 @@ module.exports = defineConfig({
     // config.externals = {
     //   'vue': 'Vue',
     //   'element-plus':'Element',
-      
+
     // };
     // 清除console代码
     let optimizationCompress = config.optimization.minimizer[0].options.minimizer.options.compress;
