@@ -1,5 +1,5 @@
 version:2
-jobx:
+jobs:
   build:
     docker:
       - image:circleci/node:18
