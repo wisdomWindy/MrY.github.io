@@ -31,3 +31,7 @@ jobs:
       - run:
           name: Run Deploy scripts
           command: ./scripts/deploy.sh
+workflows:
+  build:
+    jobs:
+      - build
