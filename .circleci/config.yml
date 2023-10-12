@@ -1,0 +1,25 @@
+version:2
+jobx:
+  build:
+    docker:
+      - image:circleci/node:18
+
+    branches:
+      only:
+        - master
+    steps:
+      - checkout
+      - restore_cache:
+        keys:
+          - dependencies-
+      - run:
+        name:install
+        command:npm install
+      - save_cache:
+        paths:
+          - node_modules
+        key:dependencies-
+      - run:
+        name:Build github pages
+        command:npm run build
+    
