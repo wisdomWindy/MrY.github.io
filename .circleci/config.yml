@@ -1,4 +1,4 @@
-version:2
+version: 2
 jobs:
   build:
     docker:
@@ -13,13 +13,13 @@ jobs:
         keys:
           - dependencies-
       - run:
-        name:install
-        command:npm install
+        name: install
+        command: npm install
       - save_cache:
         paths:
           - node_modules
-        key:dependencies-
+        key: dependencies-
       - run:
-        name:Build github pages
-        command:npm run build
+        name: Build github pages
+        command: npm run build
     
