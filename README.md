@@ -1,5 +1,5 @@
 # web
-
+[访问网址](https://wisdomwindy.github.io/dist/)
 ## Project setup
 ```
 npm install
