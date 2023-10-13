@@ -51,7 +51,7 @@ jobs:
         run: pnpm build
       # 部署
       - name: Deploy GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses:  JamesIves/github-pages-deploy-action@v4
         with:
-          BRANCH: main
-          FOLDER: docs
+          branch: pages
+          folder: docs
