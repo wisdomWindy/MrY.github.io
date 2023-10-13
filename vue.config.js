@@ -6,8 +6,6 @@ const timeStamp = Date.now();
 module.exports = defineConfig({
   transpileDependencies: true,
   outputDir: 'docs', // 输出文件的目录为根目录下的dist
-  // assetsDir: '/', // 相对于outputDir  ../dist/./
-  // indexPath: '../index.html',
   publicPath: '/',
   lintOnSave: false,
   productionSourceMap: false,
@@ -51,10 +49,6 @@ module.exports = defineConfig({
     }
   },
   devServer: {
-    // static: {
-    //   publicPath: '/dist/dist/images/', // 访问服务器的url，当访问该url时返回对应的资源
-    //   directory: './public/images/' // 提供资源的文件夹，当访问publicPath时提供directory中的对应内容
-    // },
     client: {
       overlay: false
     }
