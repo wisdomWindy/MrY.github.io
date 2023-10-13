@@ -51,19 +51,11 @@ onBeforeMount(()=>{
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.carousel{
-  padding:0 20px;
-}
+
 .carousel_img{
   object-fit: fill;
   width: 100%;
   height:100%;
-}
-.tabs{
-  margin:0 20px;
-}
-.row{
-  padding:0 20px;
 }
 
 </style>

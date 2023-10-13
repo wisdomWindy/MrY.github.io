@@ -19,6 +19,8 @@ import BaseFooter from '@/components/BaseFooter.vue'
   height: 100%;
   display:flex;
   flex-direction: column;
+  padding:20px 20px 0;
+  box-sizing: border-box;
 }
 .footer{
   height:40px;
@@ -28,10 +30,10 @@ import BaseFooter from '@/components/BaseFooter.vue'
 }
 .main{
   flex:1;
-  overflow: hidden;
+   height:calc(100% - 100px);
+  overflow-y: scroll;
 }
 .container{
   width: 100%;
-  height: 100%;
 }
 </style>
