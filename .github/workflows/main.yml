@@ -14,8 +14,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: output environment
-        run: echo $DEFAULT_BRANCH
       # 检出代码
       - name: checkout
         uses: actions/checkout@v3
