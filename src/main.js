@@ -10,6 +10,7 @@ import { Message } from '@element-plus/icons-vue';
 
 const app = createApp(App);
 app.component('Message',Message);
+
 app.use(store).use(router).use(Element,{
   locale:zhCn
 }).mount('#app')

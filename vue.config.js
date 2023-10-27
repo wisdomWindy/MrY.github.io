@@ -1,5 +1,6 @@
 const { defineConfig } = require('@vue/cli-service');
-
+const CDNPlugin = require('webpack-cdn-plugin');
+const WebpackImageCompression = require('webpack-image-compression');
 const timeStamp = Date.now();
 // vue中public文件夹放在与src同级目录下，该目录中放置静态资源，引用时路径相对于实际引用的文件
 module.exports = defineConfig({
@@ -17,6 +18,25 @@ module.exports = defineConfig({
       drop_console: true,
       drop_debugger: true
     });
+    config.plugins.push(new CDNPlugin({
+      modules: [{
+        name: 'vue',
+        var: 'Vue',
+        path: 'dist/vue.runtime.min.js'
+      }, {
+        name:'vuex',
+        var:'Vuex',
+        path:'dist/vuex.min.js'
+      },{
+        name:'vue-router',
+        var:'VueRouter',
+        path:'dist/vue-router/min.js'
+      }],
+      publicPath: '/node_modules'
+    }));
+    config.plugins.push(new WebpackImageCompression({
+      publicPath:'public/images'
+    }));
   },
   chainWebpack: (config) => {
     config.plugin('extract-css').tap(arg => [{
