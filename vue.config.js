@@ -1,6 +1,6 @@
 const { defineConfig } = require('@vue/cli-service');
 const CDNPlugin = require('webpack-cdn-plugin');
-const WebpackImageCompression = require('webpack-image-compression');
+const ImageMinimizerWebpackPlugin = require('image-minimizer-webpack-plugin');
 const timeStamp = Date.now();
 // vue中public文件夹放在与src同级目录下，该目录中放置静态资源，引用时路径相对于实际引用的文件
 module.exports = defineConfig({
@@ -24,18 +24,48 @@ module.exports = defineConfig({
         var: 'Vue',
         path: 'dist/vue.runtime.min.js'
       }, {
-        name:'vuex',
-        var:'Vuex',
-        path:'dist/vuex.min.js'
-      },{
-        name:'vue-router',
-        var:'VueRouter',
-        path:'dist/vue-router/min.js'
+        name: 'vuex',
+        var: 'Vuex',
+        path: 'dist/vuex.min.js'
+      }, {
+        name: 'vue-router',
+        var: 'VueRouter',
+        path: 'dist/vue-router/min.js'
       }],
       publicPath: '/node_modules'
     }));
-    config.plugins.push(new WebpackImageCompression({
-      publicPath:'public/images'
+    config.optimization.minimizer.push(new ImageMinimizerWebpackPlugin({
+      minimizer: {
+        implementation: ImageMinimizerWebpackPlugin.imageminMinify,
+        options: {
+          plugins: [
+            ["gifsicle", { interlaced: true }],
+            ["jpegtran", { progressive: true }],
+            ["optipng", { optimizationLevel: 5 }],
+            [
+              "svgo",
+              {
+                plugins: [{
+                  name: "preset-default",
+                  params: {
+                    overrides: {
+                      removeViewBox: false,
+                      addAttributesToSVGElement: {
+                        params: {
+                          attributes: [
+                            { xmlns: "http://www.w3.org/2000/svg" },
+                          ],
+                        },
+                      },
+                    },
+                  },
+                }]
+              },
+            ],
+          ],
+        }
+
+      },
     }));
   },
   chainWebpack: (config) => {
@@ -43,6 +73,30 @@ module.exports = defineConfig({
       filename: `css/[name].${timeStamp}.css`,
       chunkFilename: `css/[name].${timeStamp}.css`
     }]);
+    config.module.rule('images')
+      .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
+      .use('image-webpack-loader')
+      .loader('image-webpack-loader')
+      .options({
+        bypassOnDebug: true, mozjpeg: {
+          progressive: true,
+        },
+        // optipng.enabled: false will disable optipng
+        optipng: {
+          enabled: false,
+        },
+        pngquant: {
+          quality: [0.65, 0.90],
+          speed: 4
+        },
+        gifsicle: {
+          interlaced: false,
+        },
+        // the webp option will enable WEBP
+        webp: {
+          quality: 75
+        }
+      });
   },
   css: {
     extract: {
