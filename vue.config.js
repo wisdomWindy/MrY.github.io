@@ -13,6 +13,11 @@ module.exports = defineConfig({
     config.output.filename = `js/[name].[chunkhash].${timeStamp}.js`;
     config.output.chunkFilename = `js/[name].[chunkhash].${timeStamp}.js`;
     // 清除console代码
+    config.experiments.concat(Object.assign(config.experiments||{},{
+      'Vue':'vue',
+      'Vuex':'vuex',
+      "VueRouter":'vue-router'
+    }));
     let optimizationCompress = config.optimization.minimizer[0].options.minimizer.options.compress;
     config.optimization.minimizer[0].options.minimizer.options.compress = Object.assign(optimizationCompress, {
       drop_console: true,
