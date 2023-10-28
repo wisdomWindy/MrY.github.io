@@ -37,8 +37,10 @@
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-pngquant": "^9.0.2",
+    "imagemin-jpegtran":"^7.0.0",
     "imagemin-svgo": "^10.0.1",
     "install": "^0.13.0",
+    "touch-cli": "^0.0.1",
     "vue-eslint-parser": "^9.3.2",
     "webpack-cdn-plugin": "^3.3.1"
   },
