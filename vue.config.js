@@ -1,7 +1,7 @@
 const { defineConfig } = require('@vue/cli-service');
 const CDNPlugin = require('webpack-cdn-plugin');
 const ImageMinimizerWebpackPlugin = require('image-minimizer-webpack-plugin');
-const AutoImport = require('auto-import');
+const AutoImport = require('unplugin-auto-import/vite');
 const Components = require('unplugin-vue-components/webpack');
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers');
 const timeStamp = Date.now();
