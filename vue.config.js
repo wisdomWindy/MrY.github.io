@@ -30,7 +30,7 @@ module.exports = defineConfig({
       }, {
         name: 'vue-router',
         var: 'VueRouter',
-        path: 'dist/vue-router/min.js'
+        path: 'dist/vue-router.global.prod.js'
       }],
       publicPath: '/node_modules'
     }));
