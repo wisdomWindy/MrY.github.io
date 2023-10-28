@@ -14,9 +14,9 @@ module.exports = defineConfig({
     config.output.chunkFilename = `js/[name].[chunkhash].${timeStamp}.js`;
     // 清除console代码
     config.externals = Object.assign(config.externals ||{},{
-      'Vue':'vue',
-      'Vuex':'vuex',
-      "VueRouter":'vue-router'
+      'vue':'Vue',
+      'vuex':'Vuex',
+      "vue-router":'VueRouter'
     });
     let optimizationCompress = config.optimization.minimizer[0].options.minimizer.options.compress;
     config.optimization.minimizer[0].options.minimizer.options.compress = Object.assign(optimizationCompress, {
