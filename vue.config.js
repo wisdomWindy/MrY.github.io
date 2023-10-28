@@ -13,7 +13,7 @@ module.exports = defineConfig({
     config.output.filename = `js/[name].[chunkhash].${timeStamp}.js`;
     config.output.chunkFilename = `js/[name].[chunkhash].${timeStamp}.js`;
     // 清除console代码
-    Object.assign(config.experiments||{},{
+    config.externals = Object.assign(config.externals ||{},{
       'Vue':'vue',
       'Vuex':'vuex',
       "VueRouter":'vue-router'
