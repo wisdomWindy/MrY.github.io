@@ -22,11 +22,11 @@ module.exports = defineConfig({
       modules: [{
         name: 'vue',
         var: 'Vue',
-        path: 'dist/vue.runtime.min.js'
+        path: 'dist/vue.runtime.global.prod.js'
       }, {
         name: 'vuex',
         var: 'Vuex',
-        path: 'dist/vuex.min.js'
+        path: 'dist/vuex.global.prod.js'
       }, {
         name: 'vue-router',
         var: 'VueRouter',
