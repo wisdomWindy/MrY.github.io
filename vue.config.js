@@ -1,9 +1,9 @@
 const { defineConfig } = require('@vue/cli-service');
 const CDNPlugin = require('webpack-cdn-plugin');
 const ImageMinimizerWebpackPlugin = require('image-minimizer-webpack-plugin');
-const AutoImport = require('unplugin-auto-import/vite');
-const Components = require('unplugin-vue-components/webpack');
-const { ElementPlusResolver } = require('unplugin-vue-components/resolvers');
+const AutoImport = require('unplugin-auto-import/webpack')
+const Components = require('unplugin-vue-components/webpack')
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 const timeStamp = Date.now();
 // vue中public文件夹放在与src同级目录下，该目录中放置静态资源，引用时路径相对于实际引用的文件
 module.exports = defineConfig({
