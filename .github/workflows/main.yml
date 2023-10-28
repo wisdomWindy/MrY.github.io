@@ -39,7 +39,7 @@ jobs:
           cache: pnpm
       # 安装依赖
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
       # 打包
       - name: Build
         run: pnpm build
