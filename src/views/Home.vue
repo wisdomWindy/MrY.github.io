@@ -27,7 +27,6 @@
 <script setup lang="ts">
 import {ref,onBeforeMount} from 'vue';
 import {homeStore} from '@/stores/home';
-import { useRoute } from 'vue-router';
 import BaseCard from '@/components/BaseCard.vue';
 
 const store = homeStore();

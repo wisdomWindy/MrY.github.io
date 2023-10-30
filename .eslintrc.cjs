@@ -11,6 +11,6 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest',
-    "parser": "@babel/eslint-parser"
+    "parser":"@babel/eslint-parser"
   }
 }
