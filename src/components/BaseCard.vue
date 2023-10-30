@@ -1,20 +1,20 @@
 <template>
- <div class="base-card">
-  <el-card :body-style="{ padding: '0px', display: 'flex' }" class="card" >
-    <img :src="cardData.imgUrl" class="card-image"/>
-    <div class="card__content" style="padding: 14px">
-      <div class="card__title">{{ cardData.name }}</div>
-      <div class="card__description">{{ cardData.description }}</div>
-    </div>
-  </el-card>
- </div>
+  <div class="base-card">
+    <el-card :body-style="{ padding: '0px', display: 'flex' }" class="card">
+      <img :src="cardData.imgUrl" class="card-image" />
+      <div class="card__content" style="padding: 14px">
+        <div class="card__title">{{ cardData.name }}</div>
+        <div class="card__description">{{ cardData.description }}</div>
+      </div>
+    </el-card>
+  </div>
 </template>
 
 <script setup lang="ts">
-import {defineProps} from 'vue';
+import { defineProps } from 'vue';
 const props = defineProps({
-  cardData:{
-    type:Object,
+  cardData: {
+    type: Object,
     default: () => {
       return {}
     }
@@ -25,29 +25,37 @@ const props = defineProps({
 </script>
 
 <style scoped>
- .card{
+.card
+{
   height: 130px;
   font-size: 14px;
   margin-bottom: 20px;
 }
-.card__title{
-  font-size:20px;
+
+.card__title
+{
+  font-size: 20px;
   font-weight: bold;
 }
-.card-image{
+
+.card-image
+{
   display: block;
   width: 100px;
   height: 100px;
-  margin:14px 0 0 14px;
+  margin: 14px 0 0 14px;
 }
-.card__content{
-  flex:1;
+
+.card__content
+{
+  flex: 1;
 }
-.card__description{
+
+.card__description
+{
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-line-clamp:3;
-}
-</style>
+  -webkit-line-clamp: 3;
+}</style>
