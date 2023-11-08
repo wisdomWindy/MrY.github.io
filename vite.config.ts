@@ -4,7 +4,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import VueComponents from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
-import VitePluginCDN from 'vite-plugin-cdn'
+import VitePluginCDNImport, { autoComplete } from 'vite-plugin-cdn-import'
 
 const timeStamp = new Date().getTime()
 
@@ -21,12 +21,13 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
       dts: true
     }),
-    VitePluginCDN({
-      esm: true,
+    VitePluginCDNImport({
       modules: [
+        autoComplete('vue'),
         {
-          name: 'vue',
-          url: 'https://cdn.bootcdn.net/ajax/libs/vue/3.3.4/vue.esm-browser.min.js'
+          name: 'vue-router',
+          var: 'VueRouter',
+          path: 'https://cdn.bootcdn.net/ajax/libs/vue-router/4.2.4/vue-router.esm-browser.js'
         }
       ]
     })
@@ -41,9 +42,9 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vue: ['vue'],
+          // vue: ['vue'],
           pinia: ['pinia'],
-          vueRouter: ['vue-router'],
+          // vueRouter: ['vue-router'],
           'element-plus': ['element-plus']
         },
         dir: 'docs',
