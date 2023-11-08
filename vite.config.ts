@@ -26,7 +26,7 @@ export default defineConfig({
         {
           name: 'vue',
           var: 'Vue',
-          path: 'https://cdn.bootcdn.net/ajax/libs/vue/3.3.4/vue.global.prod.min.js'
+          path: 'https://cdn.bootcdn.net/ajax/libs/vue/3.3.4/vue.runtime.esm-browser.prod.min.js'
         },
         {
           name: 'vue-router',
