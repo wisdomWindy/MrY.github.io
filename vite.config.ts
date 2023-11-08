@@ -23,11 +23,7 @@ export default defineConfig({
     }),
     VitePluginCDNImport({
       modules: [
-        {
-          name: 'vue',
-          var: 'vue',
-          path: 'https://cdn.bootcdn.net/ajax/libs/vue/3.3.4/vue.esm-browser.prod.min.js'
-        },
+        autoComplete('vue'),
         {
           name: 'vue-router',
           var: 'vue-router',
