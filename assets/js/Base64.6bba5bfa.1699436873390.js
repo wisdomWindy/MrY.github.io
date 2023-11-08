@@ -1,0 +1,1 @@
+import{_ as e}from"./index.5c11329a.1699436873390.js";import"./pinia.19054572.1699436873390.js";import"vue";import"./element-plus.4c44582d.1699436873390.js";const t={class:"base64"};const o=e({},[["render",function(e,o){return Vue.openBlock(),Vue.createElementBlock("div",t,"尚未开发")}]]);export{o as default};
