@@ -3,7 +3,8 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import VueComponents from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import {ViteImageOptimizer} from 'vite-plugin-image-optimizer'
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
+import VitePluginCDN from 'vite-plugin-cdn'
 
 const timeStamp = new Date().getTime()
 
@@ -19,6 +20,15 @@ export default defineConfig({
     VueComponents({
       resolvers: [ElementPlusResolver()],
       dts: true
+    }),
+    VitePluginCDN({
+      esm: true,
+      modules: [
+        {
+          name: 'vue',
+          url: 'https://cdn.bootcdn.net/ajax/libs/vue/3.3.4/vue.esm-browser.min.js'
+        }
+      ]
     })
   ],
   resolve: {
@@ -34,7 +44,7 @@ export default defineConfig({
           vue: ['vue'],
           pinia: ['pinia'],
           vueRouter: ['vue-router'],
-          'element-plus':['element-plus']
+          'element-plus': ['element-plus']
         },
         dir: 'docs',
         chunkFileNames: `assets/js/[name].[hash].${timeStamp}.js`,
