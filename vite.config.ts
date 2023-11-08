@@ -34,9 +34,9 @@ export default defineConfig({
           vueRouter: ['vue-router']
         },
         dir: 'docs',
-        chunkFileNames: `assets/[name].[hash].${timeStamp}.js`,
-        entryFileNames: `assets/[name].[hash].${timeStamp}.js`,
-        assetFileNames: `assets/[name].[hash].${timeStamp}.[ext]`
+        chunkFileNames: `assets/js/[name].[hash].${timeStamp}.js`,
+        entryFileNames: `assets/js/[name].[hash].${timeStamp}.js`,
+        assetFileNames: `assets/[ext]/[name].[hash].${timeStamp}.[ext]`
       }
     },
     cssCodeSplit: true,
