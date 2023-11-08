@@ -1,12 +1,6 @@
 <template>
   <div class="video-transform">
-    <el-upload
-    ref="uploadRef"
-    class="upload-demo"
-    accept="video/*"
-    :auto-upload="false"
-    :on-change="handleChange"
-    >
+    <el-upload ref="uploadRef" class="upload-demo" accept="video/*" :auto-upload="false" :on-change="handleChange">
       <template #trigger>
         <el-button type="primary">select file</el-button>
       </template>
@@ -16,47 +10,49 @@
 </template>
 
 <script setup lang="ts">
-import {ref } from 'vue';
+import { ref } from 'vue';
 import { FFmpeg } from '@ffmpeg/ffmpeg';
-import {toBlobURL,fetchFile} from '@ffmpeg/util';
+import { toBlobURL, fetchFile } from '@ffmpeg/util';
 import { ElMessage } from 'element-plus';
+import type { UploadFiles, UploadFile } from 'element-plus/lib/components/index.js';
 
 const video = ref<HTMLVideoElement>();
 const ffm = new FFmpeg();
 const baseUrl = 'https://unpkg.com/@ffmpeg/core@0.12.2/dist/umd';
 
 
-async function handleChange(file:UploadFile){
-  try{
-    await ffm.load({
-      coreURL: await toBlobURL(`${baseUrl}/ffmpeg-core.js`, 'text/javascript'),
-      wasmURL: await toBlobURL(`${baseUrl}/ffmpeg-core.wasm`, 'application/wasm')
+function handleChange(uploadFile: UploadFile) {
+  Promise.all([toBlobURL(`${baseUrl}/ffmpeg-core.js`, 'text/javascript'),
+  toBlobURL(`${baseUrl}/ffmpeg-core.wasm`, 'application/wasm')]).then(res => {
+    const [coreURL, wasmURL] = res;
+    ffm.load({
+      coreURL,
+      wasmURL
+    }).then(async () => {
+      let fileStream = await fetchFile(uploadFile.raw);
+      await ffm.writeFile('input.wmv', fileStream);
+      await ffm.exec(['-i', 'input.wmv', '-f', 'mp4', 'output.mp4']);
+      const fileData = await ffm.readFile('output.mp4');
+      if (video.value) {
+        video.value.src = URL.createObjectURL(new Blob([fileData], { type: 'video/mp4' }));
+      }
+    }).catch(err => {
+      ElMessage.error({
+        message: (err as { message: string }).message
+      });
     });
-    let fileStream = await fetchFile(file.raw);
-    // console.log(fileStream)
-    let writeFileFlag = await ffm.writeFile('input.wmv', fileStream);
-    // console.log(writeFileFlag)
-    let res = await ffm.exec(['-i', 'input.wmv','-f','mp4', 'output.mp4']);
-    // console.log(res);
-    const fileData = await ffm.readFile('output.mp4');
-    if(video.value){
-      video.value.src = URL.createObjectURL(new Blob([fileData], { type: 'video/mp4' }));
-    }
-    
-   
-  }catch(err){
+  }).catch(err => {
     ElMessage.error({
-      message: (err as {message:string}).message
+      message: (err as { message: string }).message
     });
-  }
-  
-
+  });
 }
 </script>
 
 <style scoped>
- .video{
+.video
+{
   width: 400px;
   height: 300px;
- }
+}
 </style>

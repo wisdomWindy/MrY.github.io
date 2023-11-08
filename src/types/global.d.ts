@@ -12,7 +12,3 @@ type CardItem = {
   imgUrl:string,
   description:string
 }
-
-type UploadFile = {
-  raw: File
-}
