@@ -45,7 +45,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const routes = router.getRoutes();
   if (routes.length > 1) {
-    next()
+    next();
   } else {
     const localRoutes = localStorage.getItem('routes');
     if (localRoutes) {

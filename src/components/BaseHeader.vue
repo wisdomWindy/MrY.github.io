@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <el-menu class="menu" mode="horizontal" :default-active="menuList[0].path" :unique-opened="true" :router="true">
+    <el-menu class="menu" @select="handleMenuSelect" mode="horizontal" :default-active="activePath" :unique-opened="true" :router="true">
       <el-menu-item class="menu-item" v-for="(menu, index) in menuList" :key="index"
         :index="menu.path">{{ menu.label }}</el-menu-item>
     </el-menu>
@@ -11,11 +11,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onBeforeMount } from "vue";
+import { ref, onBeforeMount,computed } from "vue";
 import { mainStore } from '../stores/main';
 let menuList = ref<MenuItem[]>([]);
 let isLight = ref(true);
 let store = mainStore();
+let activePath = computed(()=>{
+  return localStorage.getItem('activePath') || menuList.value[0].path;
+});
 onBeforeMount(() => {
   menuList.value = store.menuList;
 });
@@ -24,6 +27,15 @@ onBeforeMount(() => {
 function changeSkin() {
   const el = document.documentElement;
   el.style.setProperty('--el-color-primary', isLight.value ? '#409eff' : '#000');
+}
+/**
+ * @description 菜单选中事件
+ * @param index 菜单的index
+ * @param indexPath 菜单的path
+ */
+function handleMenuSelect(index:number,indexPath:string){
+  console.log(indexPath)
+  localStorage.setItem('activePath',indexPath);
 }
 </script>
 

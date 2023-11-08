@@ -15,10 +15,12 @@
 </template>
 
 <script setup lang="ts">
-import {ref,onBeforeMount} from 'vue'
+import {ref,onBeforeMount,computed} from 'vue'
 import {ElLink} from 'element-plus'
 let startDate = new Date('2021/03/08');
-let timeSpan = new Date().getFullYear() - startDate.getFullYear();
+let timeSpan = computed(()=>{
+  return new Date().getFullYear() - startDate.getFullYear();
+});
 let sentense = ref<string>('');
 let links = [{
   href:'https://github.com/wisdomWindy',
