@@ -4,7 +4,6 @@ import AutoImport from 'unplugin-auto-import/vite'
 import VueComponents from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
-import VitePluginCDNImport, { autoComplete } from 'vite-plugin-cdn-import'
 
 const timeStamp = new Date().getTime()
 
@@ -20,16 +19,6 @@ export default defineConfig({
     VueComponents({
       resolvers: [ElementPlusResolver()],
       dts: true
-    }),
-    VitePluginCDNImport({
-      modules: [
-        autoComplete('vue'),
-        {
-          name: 'vue-router',
-          var: 'VueRouter',
-          path: 'https://cdn.bootcdn.net/ajax/libs/vue-router/4.2.4/vue-router.global.prod.min.js'
-        }
-      ]
     })
   ],
   resolve: {
