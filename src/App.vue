@@ -11,14 +11,14 @@
 <script setup lang="ts">
 import BaseHeader from '@/components/BaseHeader.vue';
 import BaseFooter from '@/components/BaseFooter.vue';
-import { onMounted,onBeforeUnmount } from 'vue';
+import { onMounted, onBeforeUnmount } from 'vue';
 import router from './router';
 
 onMounted(() => {
   localStorage.setItem('routes', JSON.stringify(router.getRoutes()));
 });
 
-onBeforeUnmount(()=>{
+onBeforeUnmount(() => {
   localStorage.remove('activePath');
 });
 
