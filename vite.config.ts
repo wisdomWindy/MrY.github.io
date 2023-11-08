@@ -28,12 +28,18 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
+        manualChunks:{
+          vue:['vue'],
+          pinia:['pinia']
+        },
         dir: 'docs',
-        chunkFileNames: `[name].[hash].${timeStamp}.js`,
-        entryFileNames: `[name].[hash].${timeStamp}.js`,
-        assetFileNames: `[name].[hash].${timeStamp}.[ext]`
+        chunkFileNames: `assets/[name].[hash].${timeStamp}.js`,
+        entryFileNames: `assets/[name].[hash].${timeStamp}.js`,
+        assetFileNames: `assets/[name].[hash].${timeStamp}.[ext]`
       }
     },
+    cssCodeSplit:true,
+    cssMinify:true,
     minify:'terser',
     terserOptions:{
       compress:{
