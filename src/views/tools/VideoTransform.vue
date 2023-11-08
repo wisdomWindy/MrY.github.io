@@ -14,7 +14,7 @@ import { ref } from 'vue';
 import { FFmpeg } from '@ffmpeg/ffmpeg';
 import { toBlobURL, fetchFile } from '@ffmpeg/util';
 import { ElMessage } from 'element-plus';
-import type { UploadFiles, UploadFile } from 'element-plus/lib/components/index.js';
+import type { UploadFile } from 'element-plus/lib/components/index.js';
 
 const video = ref<HTMLVideoElement>();
 const ffm = new FFmpeg();

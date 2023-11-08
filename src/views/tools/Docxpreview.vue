@@ -19,6 +19,7 @@
 import { ref } from 'vue'
 import VueOfficeDocx from '@vue-office/docx';
 import '@vue-office/docx/lib/index.css'
+import type {UploadFile} from 'element-plus/lib/components/index.js'
 
 let docxUrl = ref<ArrayBuffer>();
 let showPreview = ref(false);
@@ -26,13 +27,13 @@ let showPreview = ref(false);
  * @description 上传文件发生变化时触发
  * @param {File} uploadFile 
  */
-function handleChange(uploadFile: { raw: File }) {
+function handleChange(uploadFile: UploadFile) {
   let reader = new FileReader();
   reader.addEventListener('load', (e) => {
     docxUrl.value = e.target?.result as ArrayBuffer;
     showPreview.value = true;
   });
-  reader.readAsArrayBuffer(uploadFile.raw);
+  reader.readAsArrayBuffer(uploadFile?.raw as Blob);
 }
 /**
  * @description 文件删除时触发

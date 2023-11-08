@@ -1,5 +1,5 @@
 <template>
- <div class=""></div>
+ <div class="base64">尚未开发</div>
 </template>
 
 <script setup lang="ts">

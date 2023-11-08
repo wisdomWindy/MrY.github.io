@@ -43,17 +43,16 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(to, from)
-  let routes = router.getRoutes()
+  const routes = router.getRoutes();
   if (routes.length > 1) {
     next()
   } else {
-    let localRoutes = localStorage.getItem('routes')
+    const localRoutes = localStorage.getItem('routes');
     if (localRoutes) {
-      router.addRoute(JSON.parse(localRoutes))
-      router.push('/')
+      router.addRoute(JSON.parse(localRoutes));
+      router.push('/');
     } else {
-      next('/')
+      next('/');
     }
   }
 })
