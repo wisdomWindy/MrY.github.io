@@ -25,7 +25,7 @@
 </template>
 
 <script module setup lang="ts">
-import {ref,onBeforeMount} from 'vue';
+import {ref,onBeforeMount,onMounted} from 'vue';
 import {homeStore} from '@/stores/home';
 import BaseCard from '@/components/BaseCard.vue';
 
@@ -43,6 +43,9 @@ onBeforeMount(()=>{
     num.value++;
   }, 2000);
 });
+onMounted(()=>{
+  console.log(window.vue);
+})
 
 </script>
 
