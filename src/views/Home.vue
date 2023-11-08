@@ -2,7 +2,7 @@
   <div class="container">
     <el-carousel indicator-position="outside" class="carousel">
       <el-carousel-item v-for="(img, index) in swiperList" :key="index">
-       <img :src="img.path" v-lazy="{src:img.path,loading:'/favicon.ico'}" :alt="img.alt" class="carousel_img">
+       <img v-lazy="{src:img.path,loading:'/favicon.ico'}" :alt="img.alt" class="carousel_img">
       </el-carousel-item>
     </el-carousel>
     <el-tabs v-model="activeName" type="border-card" class="tabs">
