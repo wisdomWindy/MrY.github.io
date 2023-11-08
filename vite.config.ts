@@ -33,7 +33,8 @@ export default defineConfig({
         manualChunks: {
           vue: ['vue'],
           pinia: ['pinia'],
-          vueRouter: ['vue-router']
+          vueRouter: ['vue-router'],
+          'element-plus':['element-plus']
         },
         dir: 'docs',
         chunkFileNames: `assets/js/[name].[hash].${timeStamp}.js`,
