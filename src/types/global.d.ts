@@ -12,3 +12,5 @@ type CardItem = {
   imgUrl:string,
   description:string
 }
+declare const Vue = widnow.Vue
+declare const VueRouter = window.VueRouter

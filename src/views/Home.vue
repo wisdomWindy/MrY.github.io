@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script module setup lang="ts">
+<script setup lang="ts">
 import { ref, onBeforeMount, onMounted } from 'vue';
 import { homeStore } from '@/stores/home';
 import BaseCard from '@/components/BaseCard.vue';

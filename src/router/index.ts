@@ -1,8 +1,5 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-
-const router = createRouter({
-  history: createWebHashHistory(),
-  routes: [
+import { createRouter, createWebHashHistory, type RouteRecord } from 'vue-router'
+const routes =  [
     {
       path: '/',
       redirect: '/home'
@@ -39,10 +36,19 @@ const router = createRouter({
         }
       ]
     }
-  ]
-})
+  ];
+const router =
+  import.meta.env.mode === 'development'
+    ? createRouter({
+        history: createWebHashHistory(),
+        routes
+      })
+    : VueRouter.createRouter({
+        history: VueRouter.createWebHashHistory(),
+        routes
+      });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to:RouteRecord, from:RouteRecord, next:Function) => {
   const routes = router.getRoutes();
   if (routes.length > 1) {
     next();
