@@ -33,9 +33,8 @@ function changeSkin() {
  * @param index 菜单的index
  * @param indexPath 菜单的path
  */
-function handleMenuSelect(index:number,indexPath:string){
-  console.log(indexPath)
-  localStorage.setItem('activePath',indexPath);
+function handleMenuSelect(index:string,indexPath:string[]){
+  localStorage.setItem('activePath',indexPath[0]);
 }
 </script>
 
