@@ -18,7 +18,6 @@
     "allowJs": false,
     "declarationDir": "./src/types",
     "rootDirs": ["./src/"],
-    "typeRoots": ["./src/types"],
     "esModuleInterop": true,
     "noImplicitAny": true,
     "noImplicitThis": true
