@@ -5,6 +5,7 @@
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
+    "types":["node","element-plus/global"],
     "paths": {
       "@/*": ["./src/*"]
     }

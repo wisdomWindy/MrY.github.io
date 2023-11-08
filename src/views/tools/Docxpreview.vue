@@ -19,7 +19,6 @@
 import { ref } from 'vue'
 import VueOfficeDocx from '@vue-office/docx';
 import '@vue-office/docx/lib/index.css'
-import { ElMessage } from 'element-plus';
 
 let docxUrl = ref<ArrayBuffer>();
 let showPreview = ref(false);

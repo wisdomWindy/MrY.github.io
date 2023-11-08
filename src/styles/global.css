@@ -1,18 +1,22 @@
-*{
-  margin:0;
+@import './iconfont.css';
+
+* {
+  margin: 0;
 }
+
 :root {
   --theme-family: Microsoft Yahei;
   --theme-font-size: 16px;
 }
-::-webkit-scrollbar{
-  width:0;
-  height:0;
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
   background-color: transparent;
 }
 
-.iconfont{
-  font-size:20px;
+.iconfont {
+  font-size: 20px;
 }
 
 a {

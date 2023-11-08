@@ -5,8 +5,7 @@ module.exports = {
   env: {
     "browser": true,
     "node": true,
-    "es2024": true,
-    "vue3": true
+    "es2024": true
   },
   root: true,
   extends: [

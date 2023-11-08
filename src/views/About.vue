@@ -16,9 +16,10 @@
 
 <script setup lang="ts">
 import {ref,onBeforeMount} from 'vue'
+import {ElLink} from 'element-plus'
 let startDate = new Date('2021/03/08');
 let timeSpan = new Date().getFullYear() - startDate.getFullYear();
-let sentense = ref('');
+let sentense = ref<string>('');
 let links = [{
   href:'https://github.com/wisdomWindy',
   title:'github',
