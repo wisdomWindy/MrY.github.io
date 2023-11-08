@@ -22,7 +22,7 @@ export default defineConfig({
       dts: true
     }),
     VitePluginCDNImport({
-      prodUrl:'https://cdn.bootcdn.net/ajax/libs/',
+      prodUrl:'https://cdn.bootcdn.net/ajax/libs/{name}/{version}/{path}',
       modules: [
         {
           name: 'vue',
