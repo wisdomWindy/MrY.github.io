@@ -1,7 +1,7 @@
 <template>
   <div class="base-card">
     <el-card :body-style="{ padding: '0px', display: 'flex' }" class="card">
-      <img :src="cardData.imgUrl" class="card-image" />
+      <img :src="cardData.imgUrl" v-lazy="{src:cardData.imgUrl,loading:'/public/favicon.ico'}" class="card-image" />
       <div class="card__content" style="padding: 14px">
         <div class="card__title">{{ cardData.name }}</div>
         <div class="card__description">{{ cardData.description }}</div>
