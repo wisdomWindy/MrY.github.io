@@ -11,6 +11,13 @@
 <script setup lang="ts">
 import BaseHeader from '@/components/BaseHeader.vue';
 import BaseFooter from '@/components/BaseFooter.vue';
+import { onMounted } from 'vue';
+import router from './router';
+
+onMounted(() => {
+  localStorage.setItem('routes', JSON.stringify(router.getRoutes()));
+});
+
 </script>
 
 <style>
@@ -44,4 +51,5 @@ import BaseFooter from '@/components/BaseFooter.vue';
 .container
 {
   width: 100%;
-}</style>
+}
+</style>

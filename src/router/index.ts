@@ -35,4 +35,20 @@ const router = createRouter({
   ]
 })
 
+router.beforeEach((to,from,next)=>{
+  console.log(to,from)
+  let routes = router.getRoutes();
+  if(routes.length > 1){
+    next();
+  } else {
+    let localRoutes = localStorage.getItem('routes');
+    if(localRoutes){
+      router.addRoute(JSON.parse(localRoutes));
+      router.push('/');
+    } else {
+      next('/');
+    }
+  }
+});
+
 export default router

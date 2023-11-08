@@ -5,7 +5,7 @@ import VueComponents from 'unplugin-vue-components/vite';
 import {ElementPlusResolver} from 'unplugin-vue-components/resolvers';
 
 const timeStamp = new Date().getTime();
-// https://vitejs.dev/config/
+
 export default defineConfig({
   plugins: [
     vue(),
@@ -30,7 +30,8 @@ export default defineConfig({
       output: {
         manualChunks:{
           vue:['vue'],
-          pinia:['pinia']
+          pinia:['pinia'],
+          vueRouter:['vue-router']
         },
         dir: 'docs',
         chunkFileNames: `assets/[name].[hash].${timeStamp}.js`,

@@ -1,0 +1,1 @@
+import{r}from"./index.b612deed.1699408558062.js";import{A as s,B as o}from"./vue.a647cbcc.1699408558062.js";import"./pinia.79fa6bda.1699408558062.js";import"./vueRouter.ab1bb8c3.1699408558062.js";const t={class:""};const e=r({},[["render",function(r,e){return s(),o("div",t)}]]);export{e as default};

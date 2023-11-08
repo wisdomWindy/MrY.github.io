@@ -1,23 +1,22 @@
 <template>
- <div class="container">
-    <el-upload
-    ref="uploadRef"
-    class="upload-demo"
-    accept="docx,excel,pdf"
-    :auto-upload="false"
+  <div class="container">
+    <el-upload 
+    ref="uploadRef" 
+    class="upload-demo" 
+    accept="docx,excel,pdf" 
+    :auto-upload="false" 
     :on-remove="handleRemove"
-    :on-change="handleChange"
-    >
+    :on-change="handleChange">
       <template #trigger>
         <el-button type="primary">select file</el-button>
       </template>
     </el-upload>
-    <VueOfficeDocx v-if="showPreview" :src="docxUrl"/>
- </div>
+    <VueOfficeDocx v-if="showPreview" :src="docxUrl" />
+  </div>
 </template>
 
 <script setup lang="ts">
-import {ref}from 'vue'
+import { ref } from 'vue'
 import VueOfficeDocx from '@vue-office/docx';
 import '@vue-office/docx/lib/index.css'
 import { ElMessage } from 'element-plus';
@@ -28,9 +27,9 @@ let showPreview = ref(false);
  * @description 上传文件发生变化时触发
  * @param {File} uploadFile 
  */
-function handleChange(uploadFile:{raw:File}){
+function handleChange(uploadFile: { raw: File }) {
   let reader = new FileReader();
-  reader.addEventListener('load',(e)=>{
+  reader.addEventListener('load', (e) => {
     docxUrl.value = e.target?.result as ArrayBuffer;
     showPreview.value = true;
   });
@@ -39,19 +38,21 @@ function handleChange(uploadFile:{raw:File}){
 /**
  * @description 文件删除时触发
  */
-function handleRemove(){
+function handleRemove() {
   showPreview.value = false;
 }
 </script>
 
 <style scoped>
- .container{
+.container
+{
   width: 100%;
   height: 100%;
- }
+}
 </style>
 <style>
-.vue-office-docx{
+.vue-office-docx
+{
   height: auto;
 }
 </style>
