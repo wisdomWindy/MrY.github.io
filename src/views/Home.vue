@@ -2,7 +2,7 @@
   <div class="container">
     <el-carousel indicator-position="outside" class="carousel">
       <el-carousel-item v-for="(img, index) in swiperList" :key="index">
-       <img v-lazy="{src:img.path,loading:'/favicon.ico'}" :alt="img.alt" class="carousel_img">
+        <img v-lazy="{ src: img.path, loading: '/favicon.ico' }" :alt="img.alt" class="carousel_img">
       </el-carousel-item>
     </el-carousel>
     <el-tabs v-model="activeName" type="border-card" class="tabs">
@@ -25,8 +25,8 @@
 </template>
 
 <script module setup lang="ts">
-import {ref,onBeforeMount,onMounted} from 'vue';
-import {homeStore} from '@/stores/home';
+import { ref, onBeforeMount, onMounted } from 'vue';
+import { homeStore } from '@/stores/home';
 import BaseCard from '@/components/BaseCard.vue';
 
 const store = homeStore();
@@ -36,26 +36,23 @@ let activeName = ref('first');
 let num = ref(1);
 let blackList = ref<CardItem[]>([]);
 
-onBeforeMount(()=>{
+onBeforeMount(() => {
   swiperList.value = store.swiperList;
   blackList.value = store.blackList;
   setTimeout(() => {
     num.value++;
   }, 2000);
 });
-onMounted(()=>{
-  console.log(window.vue);
-})
+
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-.carousel_img{
+.carousel_img
+{
   object-fit: fill;
   width: 100%;
-  height:100%;
+  height: 100%;
 }
-
 </style>

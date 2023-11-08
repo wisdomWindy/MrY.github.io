@@ -21,16 +21,16 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
       dts: true
     }),
-    VitePluginCDNImport({
-      modules: [
-        autoComplete('vue'),
-        {
-          name: 'vue-router',
-          var: 'vue-router',
-          path: 'https://cdn.bootcdn.net/ajax/libs/vue-router/4.2.4/vue-router.global.prod.min.js'
-        }
-      ]
-    })
+    // VitePluginCDNImport({
+    //   modules: [
+    //     autoComplete('vue'),
+    //     {
+    //       name: 'vue-router',
+    //       var: 'vue-router',
+    //       path: 'https://cdn.bootcdn.net/ajax/libs/vue-router/4.2.4/vue-router.global.prod.min.js'
+    //     }
+    //   ]
+    // })
   ],
   resolve: {
     alias: {
