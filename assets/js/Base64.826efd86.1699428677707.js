@@ -1,1 +1,0 @@
-import{x as s}from"./index.91a16846.1699428677707.js";import{z as r,A as o}from"./vue.cf321f0c.1699428677707.js";import"./pinia.bf73e17b.1699428677707.js";import"./vueRouter.77ce4a8e.1699428677707.js";const t={class:"base64"};const e=s({},[["render",function(s,e){return r(),o("div",t,"尚未开发")}]]);export{e as default};
