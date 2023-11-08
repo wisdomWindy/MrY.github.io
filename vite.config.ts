@@ -22,16 +22,17 @@ export default defineConfig({
       dts: true
     }),
     VitePluginCDNImport({
+      prodUrl:'https://cdn.bootcdn.net/ajax/libs/',
       modules: [
         {
           name: 'vue',
           var: 'Vue',
-          path: 'https://cdn.bootcdn.net/ajax/libs/vue/3.3.4/vue.esm-browser.prod.min.js'
+          path: 'vue/3.3.4/vue.esm-browser.prod.min.js'
         },
         {
           name: 'vue-router',
           var: 'VueRouter',
-          path: 'https://cdn.bootcdn.net/ajax/libs/vue-router/4.2.4/vue-router.global.prod.min.js'
+          path: 'vue-router/4.2.4/vue-router.global.prod.min.js'
         }
       ]
     })
