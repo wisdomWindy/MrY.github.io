@@ -37,6 +37,9 @@ const routes = [
         path: 'docxpreview',
         name: 'docxpreview',
         component: () => import('@/views/tools/Docxpreview.vue')
+      },{
+        path:"sincerelyGreatAdventure",
+        component:()=>import('@/views/tools/SincerelyGreatAdventure.vue')
       }
     ]
   }

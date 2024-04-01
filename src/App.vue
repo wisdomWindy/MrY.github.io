@@ -24,7 +24,7 @@ onBeforeUnmount(() => {
 
 </script>
 
-<style>
+<style scoped>
 .root
 {
   width: 100%;

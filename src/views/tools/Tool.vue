@@ -1,5 +1,5 @@
 <template>
- <div class="tool">
+ <div class="container">
     <el-menu 
     class="menu" 
     mode="vertical" 
@@ -27,11 +27,14 @@ const menuList = [{
 },{
   path:'/tool/docxpreview',
   label:'docxPreview'
+},{
+  path:'/tool/sincerelyGreatAdventure',
+  label:'真心话大冒险'
 }];
 </script>
 
 <style scoped>
- .tool{
+ .container{
   height: 100%;
   display: flex;
   overflow: hidden;

@@ -1,5 +1,5 @@
 <template>
-  <div class="video-transform">
+  <div class="container">
     <el-upload ref="uploadRef" class="upload-demo" accept="video/*" :auto-upload="false" :on-change="handleChange">
       <template #trigger>
         <el-button type="primary">select file</el-button>
