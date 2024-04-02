@@ -8,7 +8,7 @@
     :on-remove="handleRemove"
     :on-change="handleChange">
       <template #trigger>
-        <el-button type="primary">select file</el-button>
+        <el-button type="primary">请选择要预览的文件</el-button>
       </template>
     </el-upload>
     <VueOfficeDocx v-if="showPreview" :src="docxUrl" />

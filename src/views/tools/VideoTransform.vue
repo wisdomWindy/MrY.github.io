@@ -2,7 +2,7 @@
   <div class="container">
     <el-upload ref="uploadRef" class="upload-demo" accept="video/*" :auto-upload="false" :on-change="handleChange">
       <template #trigger>
-        <el-button type="primary">select file</el-button>
+        <el-button type="primary">请选择要转换的视频</el-button>
       </template>
     </el-upload>
     <video class="video" ref="video"></video>
